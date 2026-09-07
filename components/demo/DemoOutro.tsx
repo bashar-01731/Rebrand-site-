@@ -32,7 +32,7 @@ export default function DemoOutro({ concept }: { concept: Concept }) {
         Like this design?
       </p>
 
-      <h2 className="mx-auto mt-5 max-w-xl font-display text-[clamp(1.75rem,3vw,2.75rem)] leading-[1.05] tracking-tight">
+      <h2 className="mx-auto mt-5 max-w-xl font-display text-[clamp(1.75rem,3cqw,2.75rem)] leading-[1.05] tracking-tight">
         This is a {concept.industry.toLowerCase()} concept. Yours would be built
         from scratch.
       </h2>

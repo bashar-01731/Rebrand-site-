@@ -107,7 +107,7 @@ export default function Void() {
 
           <DemoNavLink
             to="void-contact"
-            className="inline-flex min-h-11 items-center px-5 text-[13px] font-bold uppercase tracking-[0.14em] transition-opacity hover:opacity-88 mv:min-h-10 mv:px-4 mv:text-xs"
+            className="inline-flex min-h-11 items-center px-5 text-[13px] font-bold uppercase tracking-[0.14em] transition-opacity hover:opacity-88 mv:px-4 mv:text-xs"
             style={{ background: "var(--demo-accent)", color: "var(--demo-accent-fg)" }}
           >
             Book
@@ -131,7 +131,7 @@ export default function Void() {
 
       {/* --- hero ------------------------------------------------------- */}
       <section id="void-hero" className="px-8 pb-16 pt-20 mv:px-4 mv:pb-10 mv:pt-10">
-        <h1 className="text-[clamp(3.5rem,13vw,11rem)] font-bold uppercase leading-[0.82] tracking-[-0.02em] mv:text-[3.5rem]">
+        <h1 className="text-[clamp(3.5rem,13cqw,8.5rem)] font-bold uppercase leading-[0.82] tracking-[-0.02em] mv:text-[3.5rem]">
           Sharp
           <br />
           <span style={{ color: "var(--demo-accent)" }}>every</span>
@@ -159,7 +159,7 @@ export default function Void() {
         id="void-services"
         className="scroll-mt-16 border-t border-[var(--demo-line)] px-8 py-14 mv:px-4 mv:py-10"
       >
-        <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold uppercase tracking-[-0.01em]">
+        <h2 className="text-[clamp(1.75rem,4cqw,3rem)] font-bold uppercase tracking-[-0.01em]">
           Prices
         </h2>
 
@@ -173,7 +173,7 @@ export default function Void() {
                 {s.n}
               </span>
               <div className="min-w-0 flex-1">
-                <h3 className="text-[clamp(1.35rem,2.6vw,2.25rem)] font-medium uppercase leading-none tracking-[-0.01em] mv:text-xl">
+                <h3 className="text-[clamp(1.35rem,2.6cqw,2.25rem)] font-medium uppercase leading-none tracking-[-0.01em] mv:text-xl">
                   {s.name}
                 </h3>
                 <p className="mt-2.5 font-sans text-[13px] leading-snug text-[var(--demo-muted)]">
@@ -181,7 +181,7 @@ export default function Void() {
                 </p>
               </div>
               <span className="shrink-0 text-right">
-                <span className="block text-[clamp(1.5rem,3vw,2.5rem)] font-bold leading-none tabular-nums mv:text-2xl">
+                <span className="block text-[clamp(1.5rem,3cqw,2.5rem)] font-bold leading-none tabular-nums mv:text-2xl">
                   {s.price}
                 </span>
                 <span className="mt-2 block font-sans text-[11px] uppercase tracking-[0.14em] text-[var(--demo-muted)]">
@@ -198,7 +198,7 @@ export default function Void() {
         id="void-barbers"
         className="scroll-mt-16 border-t border-[var(--demo-line)] px-8 py-14 mv:px-4 mv:py-10"
       >
-        <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold uppercase tracking-[-0.01em]">
+        <h2 className="text-[clamp(1.75rem,4cqw,3rem)] font-bold uppercase tracking-[-0.01em]">
           The chairs
         </h2>
 
@@ -236,7 +236,7 @@ export default function Void() {
       >
         <div className="grid grid-cols-12 gap-10 mv:gap-7">
           <div className="col-span-6 mv:col-span-12">
-            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold uppercase leading-[1.05]">
+            <h2 className="text-[clamp(1.5rem,3cqw,2.5rem)] font-bold uppercase leading-[1.05]">
               No appointment,
               <br />
               no problem.
@@ -276,7 +276,7 @@ export default function Void() {
       >
         <div className="grid grid-cols-12 gap-12 mv:gap-9">
           <div className="col-span-5 mv:col-span-12">
-            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold uppercase tracking-[-0.01em]">
+            <h2 className="text-[clamp(1.75rem,4cqw,3rem)] font-bold uppercase tracking-[-0.01em]">
               Find us
             </h2>
             <ul className="mt-8 space-y-5 font-sans text-sm">

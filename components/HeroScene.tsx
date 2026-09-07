@@ -48,10 +48,10 @@ export default function HeroScene({ className }: { className?: string }) {
 
     /* --- lights --------------------------------------------------------- */
     scene.add(new THREE.AmbientLight(0xffffff, 0.55));
-    const key = new THREE.DirectionalLight(0xf4f2ee, 2.1);
+    const key = new THREE.DirectionalLight(0xf4f2ee, 3.2);
     key.position.set(3, 4, 5);
     scene.add(key);
-    const rim = new THREE.DirectionalLight(0xb9b8b2, 1.5);
+    const rim = new THREE.DirectionalLight(0xb9b8b2, 2.2);
     rim.position.set(-5, -1, 2);
     scene.add(rim);
 
@@ -102,7 +102,7 @@ export default function HeroScene({ className }: { className?: string }) {
         new THREE.MeshBasicMaterial({
           map: glowTex,
           transparent: true,
-          opacity: 0.5,
+          opacity: 0.72,
           blending: THREE.AdditiveBlending,
           depthWrite: false,
         }),
@@ -139,6 +139,12 @@ export default function HeroScene({ className }: { className?: string }) {
     scene.add(dust);
 
     /* --- sizing ---------------------------------------------------------- */
+    // The headline is left-aligned and capped at 16ch, so on wide viewports the
+    // device moves into the empty right half rather than sitting behind the
+    // type. Below that there is no free column, and it centres again under a
+    // heavier scrim.
+    let offsetX = 0;
+
     const resize = () => {
       const { clientWidth: w, clientHeight: h } = host;
       if (w === 0 || h === 0) return;
@@ -146,6 +152,9 @@ export default function HeroScene({ className }: { className?: string }) {
       camera.aspect = w / h;
       // Pull the camera back on narrow viewports so the device never crops.
       camera.position.z = w < 700 ? 8.4 : 6.2;
+      offsetX = w >= 1280 ? 1.2 : w >= 1024 ? 0.95 : 0;
+      device.position.x = offsetX;
+      glow.position.x = offsetX * 0.7;
       camera.updateProjectionMatrix();
     };
     resize();
@@ -155,6 +164,7 @@ export default function HeroScene({ className }: { className?: string }) {
     /* --- reduced motion: one frame, no loop ------------------------------ */
     if (reduced) {
       device.rotation.set(-0.06, -0.32, 0.015);
+      device.position.x = offsetX;
       renderer.render(scene, camera);
       return () => {
         ro.disconnect();
@@ -201,6 +211,7 @@ export default function HeroScene({ className }: { className?: string }) {
       device.position.y = Math.sin(t * 0.5) * 0.07 - scrollT * 1.5;
       device.position.z = -scrollT * 2.2;
 
+      device.position.x = offsetX;
       glow.position.y = device.position.y * 0.4;
       dust.rotation.y = t * 0.012 + eased.x * 0.05;
 
@@ -278,12 +289,12 @@ function makeScreenCanvas(): HTMLCanvasElement {
 
   const { width: w, height: h } = c;
 
-  g.fillStyle = "#0d0d0c";
+  g.fillStyle = "#141413";
   g.fillRect(0, 0, w, h);
 
   // Soft top-left light spill.
   const spill = g.createRadialGradient(w * 0.26, h * 0.1, 0, w * 0.26, h * 0.1, w * 0.85);
-  spill.addColorStop(0, "rgba(185,184,178,0.20)");
+  spill.addColorStop(0, "rgba(185,184,178,0.30)");
   spill.addColorStop(1, "rgba(185,184,178,0)");
   g.fillStyle = spill;
   g.fillRect(0, 0, w, h);
@@ -339,16 +350,16 @@ function makeScreenCanvas(): HTMLCanvasElement {
   const gap = 26;
   const tw = (w - 140 - gap * (tiles - 1)) / tiles;
   const th = 250;
-  const shades = [0.1, 0.16, 0.07, 0.13];
+  const shades = [0.16, 0.24, 0.12, 0.2];
   for (let i = 0; i < tiles; i++) {
     const x = 70 + i * (tw + gap);
     const y = bar + 360;
     const grad = g.createLinearGradient(x, y, x + tw, y + th);
-    grad.addColorStop(0, `rgba(244,242,238,${shades[i] + 0.05})`);
+    grad.addColorStop(0, `rgba(244,242,238,${shades[i] + 0.08})`);
     grad.addColorStop(1, `rgba(244,242,238,${shades[i] * 0.3})`);
     g.fillStyle = grad;
     g.fillRect(x, y, tw, th);
-    g.strokeStyle = "rgba(244,242,238,0.12)";
+    g.strokeStyle = "rgba(244,242,238,0.2)";
     g.lineWidth = 2;
     g.strokeRect(x, y, tw, th);
   }

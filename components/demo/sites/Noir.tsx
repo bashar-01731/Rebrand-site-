@@ -19,28 +19,28 @@ const PIECES = [
     name: "Wool Overcoat",
     detail: "Double-faced Italian wool, charcoal",
     price: "$1,240",
-    art: "linear-gradient(168deg,#2e2e2c 0%,#141413 60%,#242422 100%)",
+    art: "radial-gradient(62% 68% at 26% 18%, rgba(244,242,238,0.17) 0%, rgba(244,242,238,0) 64%), linear-gradient(168deg,#3a3a37 0%,#141413 58%,#2a2a27 100%)",
     span: "wide",
   },
   {
     name: "Silk Column Dress",
     detail: "Bias-cut sandwashed silk, ink",
     price: "$890",
-    art: "linear-gradient(200deg,#3a3a37 0%,#0f0f0e 72%)",
+    art: "radial-gradient(54% 58% at 62% 26%, rgba(244,242,238,0.2) 0%, rgba(244,242,238,0) 60%), linear-gradient(200deg,#43433f 0%,#0f0f0e 74%)",
     span: "tall",
   },
   {
     name: "Cashmere Crew",
     detail: "Two-ply Mongolian cashmere, bone",
     price: "$460",
-    art: "linear-gradient(150deg,#e9e6df 0%,#b8b4ab 55%,#8d8a82 100%)",
+    art: "radial-gradient(58% 62% at 34% 22%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 62%), linear-gradient(150deg,#e9e6df 0%,#b8b4ab 56%,#7e7b73 100%)",
     span: "tall",
   },
   {
     name: "Tailored Trouser",
     detail: "High-twist wool, pleated front, black",
     price: "$520",
-    art: "linear-gradient(120deg,#1b1b1a 0%,#333331 48%,#0d0d0c 100%)",
+    art: "radial-gradient(60% 64% at 72% 30%, rgba(244,242,238,0.16) 0%, rgba(244,242,238,0) 62%), linear-gradient(120deg,#1b1b1a 0%,#3b3b38 46%,#0d0d0c 100%)",
     span: "wide",
   },
 ];
@@ -119,7 +119,7 @@ export default function Noir() {
         <p className="text-[11px] uppercase tracking-[0.32em] text-[var(--demo-muted)]">
           Autumn / Winter 26
         </p>
-        <h1 className="mt-8 font-display text-[clamp(3.5rem,10vw,8.5rem)] leading-[0.86] tracking-[-0.03em] mv:mt-5 mv:text-[3.6rem]">
+        <h1 className="mt-8 font-display text-[clamp(3.5rem,10cqw,8.5rem)] leading-[0.86] tracking-[-0.03em] mv:mt-5 mv:text-[3.6rem]">
           Nothing
           <br />
           decorative.
@@ -158,14 +158,14 @@ export default function Noir() {
             <article
               key={p.name}
               className={`group col-span-6 mv:col-span-12 ${
-                p.span === "wide" ? "dv:col-span-7" : "dv:col-span-5"
+                p.span === "wide" ? "dv:col-span-7" : "dv:col-span-4"
               } ${i % 2 === 1 ? "dv:mt-20" : ""}`}
             >
               <div
                 className="relative overflow-hidden"
                 style={{
                   background: p.art,
-                  aspectRatio: p.span === "wide" ? "4 / 3" : "3 / 4",
+                  aspectRatio: p.span === "wide" ? "16 / 10" : "4 / 5",
                 }}
               >
                 <div
@@ -179,7 +179,7 @@ export default function Noir() {
               </div>
               <div className="mt-5 flex items-start justify-between gap-6">
                 <div>
-                  <h3 className="font-display text-[clamp(1.5rem,2.4vw,2.25rem)] leading-tight tracking-tight mv:text-2xl">
+                  <h3 className="font-display text-[clamp(1.5rem,2.4cqw,2.25rem)] leading-tight tracking-tight mv:text-2xl">
                     {p.name}
                   </h3>
                   <p className="mt-2 text-xs text-[var(--demo-muted)]">{p.detail}</p>
@@ -205,7 +205,7 @@ export default function Noir() {
             </p>
           </div>
           <div className="col-span-8 mv:col-span-12">
-            <p className="font-display text-[clamp(1.4rem,2.6vw,2.25rem)] leading-[1.28] tracking-tight mv:text-xl">
+            <p className="font-display text-[clamp(1.4rem,2.6cqw,2.25rem)] leading-[1.28] tracking-tight mv:text-xl">
               We started NOIR because we were tired of buying clothes that were
               designed to be photographed rather than worn.
             </p>
@@ -233,7 +233,7 @@ export default function Noir() {
       >
         <div className="grid grid-cols-12 gap-12 mv:gap-9">
           <div className="col-span-5 mv:col-span-12">
-            <h2 className="font-display text-[clamp(2rem,4vw,3.25rem)] leading-none tracking-tight">
+            <h2 className="font-display text-[clamp(2rem,4cqw,3.25rem)] leading-none tracking-tight">
               Get in touch
             </h2>
             <dl className="mt-9 space-y-6 text-sm">

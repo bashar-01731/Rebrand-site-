@@ -49,9 +49,17 @@ export default function Hero() {
       {/* Ambient art direction, layered behind and dimmed so the headline
           always wins the contrast fight. */}
       <HeroScene className="pointer-events-none absolute inset-0 z-0 opacity-70 sm:opacity-100" />
+      {/* Two scrims rather than one. The vertical wash blends the scene into
+          the section below at every width; the horizontal one only exists from
+          lg up, where it darkens the left column the headline occupies and
+          leaves the right half — where the device now sits — legible. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-ink/72 via-ink/38 to-ink"
+        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-ink/55 via-transparent to-ink"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[1] hidden bg-[linear-gradient(to_right,var(--color-ink)_0%,var(--color-ink)_26%,transparent_64%)] lg:block"
       />
 
       <div className="u-container relative z-10">
@@ -97,7 +105,7 @@ export default function Hero() {
       >
         <Link
           href="#work"
-          className="t-label inline-flex items-center gap-2.5 text-silver transition-colors duration-300 hover:text-bone"
+          className="tap-target t-label inline-flex items-center gap-2.5 text-silver transition-colors duration-300 hover:text-bone"
         >
           Explore our concepts
           <ArrowDown className="animate-[bob_2.4s_ease-in-out_infinite] text-base" />

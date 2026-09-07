@@ -43,7 +43,7 @@ export default function SiteFooter() {
 
         <div className="mt-24 grid grid-cols-2 gap-x-8 gap-y-12 border-t border-line pt-14 sm:grid-cols-3 lg:grid-cols-4">
           <div className="col-span-2 sm:col-span-1">
-            <Link href="/" className="font-display text-2xl tracking-tight">
+            <Link href="/" className="tap-target font-display text-2xl tracking-tight">
               RE<span className="text-silver">:</span>BRAND
             </Link>
             <p className="t-label mt-4 text-silver">Creative Digital Studio</p>

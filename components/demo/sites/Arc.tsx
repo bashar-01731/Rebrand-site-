@@ -111,7 +111,7 @@ export default function Arc() {
 
           <DemoNavLink
             to="arc-contact"
-            className="inline-flex min-h-11 items-center px-4 text-[13px] font-medium transition-opacity hover:opacity-88 mv:min-h-10 mv:px-3.5 mv:text-xs"
+            className="inline-flex min-h-11 items-center px-4 text-[13px] font-medium transition-opacity hover:opacity-88 mv:px-3.5 mv:text-xs"
             style={{ background: "var(--demo-accent)", color: "var(--demo-accent-fg)" }}
           >
             Book a viewing
@@ -137,7 +137,7 @@ export default function Arc() {
           <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--demo-accent)]">
             Architectural property — Stockholm
           </p>
-          <h1 className="mt-7 max-w-4xl text-[clamp(2.5rem,6.6vw,5.25rem)] font-medium leading-[0.98] tracking-[-0.035em] mv:mt-4 mv:text-[2.4rem]">
+          <h1 className="mt-7 max-w-4xl text-[clamp(2.5rem,6.6cqw,5.25rem)] font-medium leading-[0.98] tracking-[-0.035em] mv:mt-4 mv:text-[2.4rem]">
             We only sell buildings we would live in.
           </h1>
 
@@ -164,7 +164,7 @@ export default function Arc() {
       {/* --- listings: rows, not cards ---------------------------------- */}
       <section id="arc-listings" className="scroll-mt-16 px-8 py-16 mv:px-4 mv:py-11">
         <div className="flex items-end justify-between gap-6 border-b border-[var(--demo-line-strong)] pb-5">
-          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-medium tracking-[-0.02em]">
+          <h2 className="text-[clamp(1.5rem,3cqw,2.25rem)] font-medium tracking-[-0.02em]">
             Current listings
           </h2>
           <p className="text-[13px] text-[var(--demo-muted)]">
@@ -299,7 +299,7 @@ export default function Arc() {
             </p>
           </div>
           <div className="col-span-8 mv:col-span-12">
-            <p className="text-[clamp(1.35rem,2.6vw,2rem)] font-medium leading-[1.28] tracking-[-0.02em] mv:text-xl">
+            <p className="text-[clamp(1.35rem,2.6cqw,2rem)] font-medium leading-[1.28] tracking-[-0.02em] mv:text-xl">
               Two of us are architects. That is the whole difference.
             </p>
             <div className="mt-9 grid grid-cols-2 gap-8 text-[15px] leading-relaxed text-[var(--demo-muted)] mv:grid-cols-1 mv:gap-6">
@@ -326,7 +326,7 @@ export default function Arc() {
       >
         <div className="grid grid-cols-12 gap-12 mv:gap-9">
           <div className="col-span-5 mv:col-span-12">
-            <h2 className="text-[clamp(1.75rem,3.4vw,2.75rem)] font-medium tracking-[-0.025em]">
+            <h2 className="text-[clamp(1.75rem,3.4cqw,2.75rem)] font-medium tracking-[-0.025em]">
               Book a viewing
             </h2>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-[var(--demo-muted)]">

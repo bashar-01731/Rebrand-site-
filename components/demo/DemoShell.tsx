@@ -210,6 +210,12 @@ function Viewport({
       tabIndex={0}
       role="region"
       aria-label="Concept website preview — scrollable"
+      /* The scroller is a size container, so every clamp() inside a demo
+         measures the frame rather than the browser window. Without this a
+         13vw headline is sized by the visitor's monitor while sitting in a
+         1024px frame — or, in mobile view, by a 1440px monitor while sitting
+         in a 370px phone. */
+      style={{ containerType: "inline-size" }}
       className="u-thin-scrollbar h-full overflow-y-auto overflow-x-hidden overscroll-contain"
     >
       {children}
@@ -252,9 +258,11 @@ function PhoneFrame({ children }: { children: ReactNode }) {
   return (
     <div className="flex justify-center py-2">
       <div className="relative w-full max-w-[390px] rounded-[2.5rem] border-[10px] border-[#161614] bg-[#161614] shadow-[0_40px_120px_-30px_rgba(0,0,0,0.9)]">
+        {/* A pill rather than a notch, in near-black at 85%: it has to read
+            over a light concept (FORM) and a pure-black one (VOID) alike. */}
         <div
           aria-hidden="true"
-          className="absolute left-1/2 top-0 z-10 h-6 w-32 -translate-x-1/2 rounded-b-2xl bg-[#161614]"
+          className="absolute left-1/2 top-2.5 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-black/85"
         />
         <div className="h-[clamp(520px,72vh,780px)] overflow-hidden rounded-[1.9rem]">
           {children}

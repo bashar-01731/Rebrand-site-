@@ -90,7 +90,7 @@ export default function Elan() {
         <p className="font-sans text-[10px] uppercase tracking-[0.36em] text-[var(--demo-accent)]">
           Est. Antwerp, 1998
         </p>
-        <h1 className="mx-auto mt-10 max-w-2xl text-[clamp(2.5rem,6vw,4.75rem)] font-normal leading-[1.06] mv:mt-6 mv:text-[2.2rem]">
+        <h1 className="mx-auto mt-10 max-w-2xl text-[clamp(2.5rem,6cqw,4.75rem)] font-normal leading-[1.06] mv:mt-6 mv:text-[2.2rem]">
           Made once,
           <br />
           worn always.
@@ -146,7 +146,7 @@ export default function Elan() {
                 <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-[var(--demo-accent)]">
                   {p.ref}
                 </p>
-                <h2 className="mt-6 text-[clamp(1.75rem,3.6vw,3rem)] leading-tight mv:mt-4 mv:text-2xl">
+                <h2 className="mt-6 text-[clamp(1.75rem,3.6cqw,3rem)] leading-tight mv:mt-4 mv:text-2xl">
                   {p.name}
                 </h2>
                 <p className="mt-5 max-w-sm font-sans text-sm leading-[1.9] text-[var(--demo-muted)]">
@@ -178,7 +178,7 @@ export default function Elan() {
           <p className="font-sans text-[10px] uppercase tracking-[0.32em] text-[var(--demo-accent)]">
             The house
           </p>
-          <p className="mt-10 text-[clamp(1.35rem,2.6vw,2rem)] leading-[1.45] mv:mt-6 mv:text-lg">
+          <p className="mt-10 text-[clamp(1.35rem,2.6cqw,2rem)] leading-[1.45] mv:mt-6 mv:text-lg">
             &ldquo;A piece of jewellery should outlive the person who
             commissioned it. Everything we do follows from that one
             sentence.&rdquo;
@@ -208,7 +208,7 @@ export default function Elan() {
         className="scroll-mt-24 border-t border-[var(--demo-line)] px-10 py-24 mv:px-6 mv:py-14"
       >
         <div className="mx-auto max-w-2xl">
-          <h2 className="text-center text-[clamp(1.75rem,3.6vw,3rem)] leading-tight">
+          <h2 className="text-center text-[clamp(1.75rem,3.6cqw,3rem)] leading-tight">
             Make an appointment
           </h2>
           <p className="mx-auto mt-6 max-w-md text-center font-sans text-sm leading-[1.9] text-[var(--demo-muted)]">

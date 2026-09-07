@@ -98,7 +98,7 @@ export default function FormCoffee() {
 
           <DemoNavLink
             to="form-shop"
-            className="inline-flex min-h-11 items-center rounded-full px-5 text-[13px] transition-opacity hover:opacity-88 mv:min-h-10 mv:px-4"
+            className="inline-flex min-h-11 items-center rounded-full px-5 text-[13px] transition-opacity hover:opacity-88 mv:px-4"
             style={{ background: "var(--demo-accent)", color: "var(--demo-accent-fg)" }}
           >
             Cart <span className="ml-1.5 opacity-80">(2)</span>
@@ -113,7 +113,7 @@ export default function FormCoffee() {
             <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--demo-accent)]">
               Roasted in small batches, Thursdays
             </p>
-            <h1 className="mt-6 font-display text-[clamp(2.75rem,6.4vw,5rem)] leading-[0.98] tracking-[-0.03em] mv:mt-4 mv:text-[2.6rem]">
+            <h1 className="mt-6 font-display text-[clamp(2.75rem,6.4cqw,5rem)] leading-[0.98] tracking-[-0.03em] mv:mt-4 mv:text-[2.6rem]">
               Coffee that
               <br />
               tastes like
@@ -167,7 +167,7 @@ export default function FormCoffee() {
         className="scroll-mt-16 border-t border-[var(--demo-line)] px-9 py-16 mv:px-4 mv:py-11"
       >
         <div className="flex items-end justify-between gap-6">
-          <h2 className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] tracking-tight">
+          <h2 className="font-display text-[clamp(1.75rem,3.4cqw,2.75rem)] tracking-tight">
             On the shelf
           </h2>
           <p className="text-[13px] text-[var(--demo-muted)]">
@@ -231,7 +231,7 @@ export default function FormCoffee() {
             <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--demo-accent)]">
               Our recipes
             </p>
-            <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.5rem)] leading-[1.15] tracking-tight">
+            <h2 className="mt-5 font-display text-[clamp(1.6rem,3cqw,2.5rem)] leading-[1.15] tracking-tight">
               Start here, then change one thing at a time.
             </h2>
             <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-[var(--demo-muted)]">
@@ -269,7 +269,7 @@ export default function FormCoffee() {
       >
         <div className="grid grid-cols-12 gap-12 mv:gap-9">
           <div className="col-span-5 mv:col-span-12">
-            <h2 className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] tracking-tight">
+            <h2 className="font-display text-[clamp(1.75rem,3.4cqw,2.75rem)] tracking-tight">
               The café
             </h2>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-[var(--demo-muted)]">

@@ -88,7 +88,7 @@ export default function Ember() {
 
           <DemoNavLink
             to="ember-contact"
-            className="inline-flex min-h-11 items-center px-5 text-[11px] uppercase tracking-[0.18em] transition-opacity hover:opacity-88 mv:min-h-10 mv:px-3.5 mv:text-[10px]"
+            className="inline-flex min-h-11 items-center px-5 text-[11px] uppercase tracking-[0.18em] transition-opacity hover:opacity-88 mv:px-3.5 mv:text-[10px]"
             style={{ background: "var(--demo-accent)", color: "var(--demo-accent-fg)" }}
           >
             Book a table
@@ -113,7 +113,7 @@ export default function Ember() {
           <p className="text-[11px] uppercase tracking-[0.32em] text-[var(--demo-muted)]">
             Open fire kitchen — Lisbon
           </p>
-          <h1 className="mx-auto mt-7 max-w-4xl font-display text-[clamp(3rem,9vw,7.5rem)] leading-[0.9] tracking-[-0.03em] mv:mt-5 mv:text-[3.1rem]">
+          <h1 className="mx-auto mt-7 max-w-4xl font-display text-[clamp(3rem,9cqw,7.5rem)] leading-[0.9] tracking-[-0.03em] mv:mt-5 mv:text-[3.1rem]">
             Everything here
             <br />
             touches fire.
@@ -148,7 +148,7 @@ export default function Ember() {
         className="scroll-mt-16 border-t border-[var(--demo-line)] px-9 py-20 mv:px-4 mv:py-12"
       >
         <div className="mb-12 flex items-baseline justify-between mv:mb-8 mv:flex-col mv:items-start mv:gap-2">
-          <h2 className="font-display text-[clamp(2rem,4vw,3.25rem)] leading-none tracking-tight">
+          <h2 className="font-display text-[clamp(2rem,4cqw,3.25rem)] leading-none tracking-tight">
             This week
           </h2>
           <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--demo-muted)]">
@@ -160,7 +160,7 @@ export default function Ember() {
             leaders across a 320px line stop being legible. */}
         <div className="grid grid-cols-2 gap-x-16 gap-y-12 mv:grid-cols-1 mv:gap-y-9">
           {MENU.map((group) => (
-            <div key={group.course} className={group.course === "To finish" ? "dv:col-span-2 dv:max-w-[calc(50%-2rem)]" : ""}>
+            <div key={group.course}>
               <h3 className="border-b border-[var(--demo-line)] pb-3 text-[11px] uppercase tracking-[0.26em] text-[var(--demo-accent)]">
                 {group.course}
               </h3>
@@ -180,13 +180,16 @@ export default function Ember() {
               </ul>
             </div>
           ))}
+          {/* The footnote is a grid cell, not a trailing paragraph: three
+              courses in a two-column menu leave the fourth quadrant empty, and
+              a printed menu would put the small print exactly there. */}
+          <p className="self-end text-xs leading-relaxed text-[var(--demo-muted)]">
+            Prices in euro. A discretionary 10% is added for tables of six or
+            more. Please tell us about allergies when you book — the whole
+            kitchen runs on one fire and we would rather plan around it than
+            improvise.
+          </p>
         </div>
-
-        <p className="mt-12 max-w-lg text-xs leading-relaxed text-[var(--demo-muted)]">
-          Prices in euro. A discretionary 10% is added for tables of six or
-          more. Please tell us about allergies when you book — the whole kitchen
-          runs on one fire and we would rather plan around it than improvise.
-        </p>
       </section>
 
       {/* --- about ------------------------------------------------------- */}
@@ -214,7 +217,7 @@ export default function Ember() {
             <p className="text-[11px] uppercase tracking-[0.26em] text-[var(--demo-muted)]">
               The room
             </p>
-            <p className="mt-6 font-display text-[clamp(1.4rem,2.6vw,2.25rem)] leading-[1.25] tracking-tight mv:text-xl">
+            <p className="mt-6 font-display text-[clamp(1.4rem,2.6cqw,2.25rem)] leading-[1.25] tracking-tight mv:text-xl">
               Thirty-four seats, one long counter, and a fire you can feel from
               the door.
             </p>
@@ -241,7 +244,7 @@ export default function Ember() {
       >
         <div className="grid grid-cols-12 gap-12 mv:gap-9">
           <div className="col-span-5 mv:col-span-12">
-            <h2 className="font-display text-[clamp(2rem,4vw,3.25rem)] leading-none tracking-tight">
+            <h2 className="font-display text-[clamp(2rem,4cqw,3.25rem)] leading-none tracking-tight">
               Find us
             </h2>
             <ul className="mt-9 space-y-6 text-sm">
@@ -265,7 +268,7 @@ export default function Ember() {
               </li>
               <li className="flex gap-3.5">
                 <Phone className="mt-0.5 shrink-0 text-lg text-[var(--demo-accent)]" />
-                <a href="tel:+351210000000" className="hover:underline">
+                <a href="tel:+351210000000" className="tap-target hover:underline">
                   +351 21 000 0000
                 </a>
               </li>

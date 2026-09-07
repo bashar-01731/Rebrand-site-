@@ -49,7 +49,7 @@ export default function SiteNav() {
       {/* Skip link — first tab stop on the page. */}
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-bone focus:px-4 focus:py-2.5 focus:text-sm focus:text-ink"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-bone focus:px-4 focus:py-3.5 focus:text-sm focus:text-ink"
       >
         Skip to content
       </a>
@@ -61,7 +61,7 @@ export default function SiteNav() {
       >
         <Link
           href="/"
-          className="font-display text-xl tracking-tight text-bone transition-opacity hover:opacity-70 sm:text-2xl"
+          className="tap-target font-display text-xl tracking-tight text-bone transition-opacity hover:opacity-70 sm:text-2xl"
         >
           RE<span className="text-silver">:</span>BRAND
         </Link>

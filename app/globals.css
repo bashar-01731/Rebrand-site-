@@ -70,6 +70,18 @@
     text-wrap: pretty;
   }
 
+  /* Concept demos own their typography. Without this, the heading rule above
+     forces Fraunces onto ARC's grotesque, ELAN's didone and VOID's condensed
+     display — the one thing that would make six bespoke sites look like six
+     reskins. Inside a demo frame headings inherit from the concept root
+     instead, and an explicit `font-display` utility still wins where a demo
+     genuinely wants Fraunces (NOIR, EMBER, FORM, and the RE:BRAND outro). */
+  [data-view] :is(h1, h2, h3, h4) {
+    font-family: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+  }
+
   /* Visible keyboard focus on everything interactive — never removed. */
   :focus-visible {
     outline: 2px solid var(--color-bone);
