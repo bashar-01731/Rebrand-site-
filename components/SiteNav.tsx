@@ -71,7 +71,7 @@ export default function SiteNav() {
             <Link
               key={l.href}
               href={l.href}
-              className="t-label text-dim transition-colors duration-300 hover:text-bone"
+              className="tap-target t-label text-dim transition-colors duration-300 hover:text-bone"
             >
               {l.label}
             </Link>

@@ -164,6 +164,23 @@
     );
   }
 
+  /* Expands a control's hit area to 44px without changing its layout box.
+     Used on dense nav rows where a 44px-tall link would wreck the design but
+     a 21px tap target would wreck the thumb. */
+  .tap-target {
+    position: relative;
+  }
+  .tap-target::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 44px;
+    min-height: 100%;
+    transform: translateY(-50%);
+  }
+
   .u-hide-scrollbar {
     scrollbar-width: none;
   }

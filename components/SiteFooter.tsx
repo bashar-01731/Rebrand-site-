@@ -60,7 +60,7 @@ export default function SiteFooter() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="inline-flex min-h-9 items-center text-sm text-dim transition-colors hover:text-bone"
+                    className="tap-target inline-flex min-h-9 items-center text-sm text-dim transition-colors hover:text-bone"
                   >
                     {l.label}
                   </Link>
@@ -76,7 +76,7 @@ export default function SiteFooter() {
                 <li key={c.slug}>
                   <Link
                     href={`/concepts/${c.slug}`}
-                    className="inline-flex min-h-9 items-center text-sm text-dim transition-colors hover:text-bone"
+                    className="tap-target inline-flex min-h-9 items-center text-sm text-dim transition-colors hover:text-bone"
                   >
                     {c.name}
                     <span className="sr-only"> — {c.industry} concept</span>
@@ -92,7 +92,7 @@ export default function SiteFooter() {
               <li>
                 <a
                   href={`mailto:${CONTACT.email}`}
-                  className="inline-flex min-h-9 items-center gap-2.5 text-sm text-dim transition-colors hover:text-bone"
+                  className="tap-target inline-flex min-h-9 items-center gap-2.5 text-sm text-dim transition-colors hover:text-bone"
                 >
                   <Mail className="text-base" />
                   {CONTACT.email}
@@ -103,7 +103,7 @@ export default function SiteFooter() {
                   href={CONTACT.whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-9 items-center gap-2.5 text-sm text-dim transition-colors hover:text-bone"
+                  className="tap-target inline-flex min-h-9 items-center gap-2.5 text-sm text-dim transition-colors hover:text-bone"
                 >
                   <WhatsApp className="text-base" />
                   WhatsApp
@@ -114,7 +114,7 @@ export default function SiteFooter() {
                   href={CONTACT.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-9 items-center gap-2.5 text-sm text-dim transition-colors hover:text-bone"
+                  className="tap-target inline-flex min-h-9 items-center gap-2.5 text-sm text-dim transition-colors hover:text-bone"
                 >
                   <Instagram className="text-base" />
                   {CONTACT.instagramHandle}
