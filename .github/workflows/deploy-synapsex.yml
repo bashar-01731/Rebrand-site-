@@ -5,10 +5,6 @@ on:
     branches:
       - claude/synapsex-landing-site-yge3m1
       - claude/plugin-marketplace-ui-ux-pro-max-skm8iq
-  pull_request:
-    paths:
-      - 'synapsex/**'
-      - '.github/workflows/deploy-synapsex.yml'
   workflow_dispatch:
 
 permissions:
@@ -16,10 +12,12 @@ permissions:
   pages: write
   id-token: write
 
-# Never let two Pages deploys race each other.
+# Queue Pages deploys rather than cancelling one mid-flight. A push to a
+# branch already reports as a check on its PR, so there is no pull_request
+# trigger to collide with this group.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -48,10 +46,7 @@ jobs:
         with:
           path: synapsex/dist
 
-  # Only pushes publish; pull_request runs stop after build so the PR still
-  # gets a green check without overwriting the live site.
   deploy:
-    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     environment:
