@@ -6,6 +6,7 @@ import Metrics from './components/Metrics';
 import Technology from './components/Technology';
 import Architecture from './components/Architecture';
 import Footer from './components/Footer';
+import { startSmoothScroll } from './smoothScroll';
 
 /** Delay before the hero content and navbar reveal themselves. */
 const ENTRANCE_DELAY = 800;
@@ -17,6 +18,9 @@ export default function App() {
     const timeout = setTimeout(() => setEntranceComplete(true), ENTRANCE_DELAY);
     return () => clearTimeout(timeout);
   }, []);
+
+  // Runs after the sections below have mounted, so snap can find them.
+  useEffect(startSmoothScroll, []);
 
   return (
     <div
