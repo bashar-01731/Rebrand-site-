@@ -32,7 +32,8 @@ export default function Technology() {
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      <div className="relative z-10 flex h-full flex-col px-8 py-12 sm:px-12 sm:py-16 md:px-16">
+      {/* Top padding clears the fixed 80px navbar, which overlays this section. */}
+      <div className="relative z-10 flex h-full flex-col px-8 pb-12 pt-24 sm:px-12 sm:pb-16 sm:pt-28 md:px-16">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <motion.h2
             className="text-[clamp(36px,8vw,72px)] font-light leading-[0.95] tracking-[-0.03em] text-white"
