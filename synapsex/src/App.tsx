@@ -15,8 +15,8 @@ const Experience = lazy(() => import('./three/Experience'));
 
 /** Delay before the hero content and navbar reveal themselves. */
 const ENTRANCE_DELAY = 400;
-/** Intro, Discover, Detail, Transformation, Close-up, Reveal, Final. */
-const SECTION_COUNT = 7;
+/** Intro, Discover, Detail, Transformation, Close-up, Reveal, Trade, Final. */
+const SECTION_COUNT = 8;
 
 export default function App() {
   const [sceneReady, setSceneReady] = useState(false);
