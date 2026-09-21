@@ -9,7 +9,7 @@ const PILL_SPRING = { type: 'spring' as const, stiffness: 350, damping: 28 };
 
 const NAV_LINKS = [
   { label: 'About', target: () => window.innerHeight },
-  { label: 'Studio', target: () => window.innerHeight * 2 },
+  { label: 'Services', target: () => document.getElementById('services')?.offsetTop ?? window.innerHeight * 4 },
 ];
 
 interface NavbarProps {

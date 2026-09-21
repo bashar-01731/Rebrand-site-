@@ -17,7 +17,7 @@ export default function Architecture() {
           transition={{ duration: 1.0 }}
         >
           <p className="mb-8 text-[13px] uppercase tracking-[0.2em] text-ink/40 sm:text-[14px]">
-            Process
+            04 — Process
           </p>
           <h2 className="mb-10 text-[clamp(28px,6vw,56px)] font-light leading-[1.15] tracking-[-0.02em] text-ink">
             Three phases. Zero guesswork.

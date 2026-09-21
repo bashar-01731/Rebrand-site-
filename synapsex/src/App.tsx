@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import CinematicText from './components/CinematicText';
 import Metrics from './components/Metrics';
 import Technology from './components/Technology';
+import Services from './components/Services';
 import Architecture from './components/Architecture';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
@@ -19,8 +20,8 @@ const Experience = lazy(() => import('./three/Experience'));
 
 /** Delay before the hero content and navbar reveal themselves. */
 const ENTRANCE_DELAY = 400;
-/** Hero, Cinematic, Metrics, Technology, Architecture, Footer. */
-const SECTION_COUNT = 6;
+/** Hero, Cinematic, Metrics, Technology, Services, Architecture, Footer. */
+const SECTION_COUNT = 7;
 
 export default function App() {
   const [sceneReady, setSceneReady] = useState(false);
@@ -61,6 +62,7 @@ export default function App() {
         <CinematicText />
         <Metrics />
         <Technology />
+        <Services />
         <Architecture />
         <Footer />
       </div>
