@@ -7,9 +7,12 @@ import { scrollToY } from '../smoothScroll';
 
 const PILL_SPRING = { type: 'spring' as const, stiffness: 350, damping: 28 };
 
+const scrollToSection = (id: string) => () =>
+  document.getElementById(id)?.offsetTop ?? window.innerHeight;
+
 const NAV_LINKS = [
-  { label: 'About', target: () => window.innerHeight },
-  { label: 'Services', target: () => document.getElementById('services')?.offsetTop ?? window.innerHeight * 4 },
+  { label: 'Process', target: scrollToSection('discover') },
+  { label: 'Contact', target: scrollToSection('final') },
 ];
 
 interface NavbarProps {

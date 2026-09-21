@@ -1,12 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import CinematicText from './components/CinematicText';
-import Metrics from './components/Metrics';
-import Technology from './components/Technology';
-import Services from './components/Services';
-import Architecture from './components/Architecture';
-import Footer from './components/Footer';
+import ScrollExperience from './components/ScrollExperience';
 import LoadingScreen from './components/LoadingScreen';
 import CustomCursor from './components/CustomCursor';
 import SectionCounter from './components/SectionCounter';
@@ -20,7 +15,7 @@ const Experience = lazy(() => import('./three/Experience'));
 
 /** Delay before the hero content and navbar reveal themselves. */
 const ENTRANCE_DELAY = 400;
-/** Hero, Cinematic, Metrics, Technology, Services, Architecture, Footer. */
+/** Intro, Discover, Detail, Transformation, Close-up, Reveal, Final. */
 const SECTION_COUNT = 7;
 
 export default function App() {
@@ -32,6 +27,10 @@ export default function App() {
 
   const handleSceneReady = useCallback(() => setSceneReady(true), []);
   const handleLoaderDone = useCallback(() => setRevealed(true), []);
+
+  const scrollToFinal = useCallback(() => {
+    document.getElementById('final')?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
 
   // The entrance only starts once the loader has cleared, so the scramble
   // isn't playing behind a curtain.
@@ -59,12 +58,7 @@ export default function App() {
       <div className="relative z-10">
         <Navbar entranceComplete={entranceComplete} />
         <Hero entranceComplete={entranceComplete} />
-        <CinematicText />
-        <Metrics />
-        <Technology />
-        <Services />
-        <Architecture />
-        <Footer />
+        <ScrollExperience onStart={scrollToFinal} />
       </div>
 
       <SectionCounter index={section} total={SECTION_COUNT} visible={revealed} />

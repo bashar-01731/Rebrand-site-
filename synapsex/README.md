@@ -64,8 +64,9 @@ src/
     CustomCursor.tsx          dot + trailing ring, pointer-fine only
     SectionCounter.tsx        01 / 06
     ScrollIndicator.tsx
-    Navbar.tsx  Hero.tsx  CinematicText.tsx  Metrics.tsx
-    Technology.tsx  Services.tsx  Architecture.tsx  Footer.tsx
+    ScrollExperience.tsx      the seven stages, in order
+    Section.tsx               one stage; copy animates off scroll progress
+    Navbar.tsx  Hero.tsx
     ScrambleIn.tsx  ScrambleText.tsx  BrandLogo.tsx  SquashHamburger.tsx
 ```
 
@@ -74,9 +75,15 @@ src/
 - Sections are transparent: the fixed canvas sits behind all of them, so the
   3D scene is continuous from the hero through the footer. Giving a section an
   opaque background breaks that.
-- `Services` is the one section the visitor is meant to act on, so its cards
-  are solid panels rather than washes and the scene steps furthest back there.
-  Package prices read "On request" by design — no invented figures.
+- The page is seven stages — Intro, Discover, Detail, Transformation,
+  Close-up, Reveal, Final — and `STAGES` in `scroll/keyframes.ts` carries one
+  keyframe per stage, evenly spaced, so each section's pass owns one leg of
+  the timeline.
+- Section copy animates from its own scroll progress (opacity, lift, blur,
+  scale), not from a viewport trigger, so it resolves as the section takes the
+  viewport and reverses on the way back up.
+- Sections alternate which side the copy sits on, opposite where the object
+  travels at that progress, so the type always has clean ground under it.
 - The scene's opacity is part of the scroll timeline (`sceneOpacity`). Dark type
   on a pale ground is unreadable over a dark object filling the frame, so the
   WebGL layer steps back under dense copy and comes forward where the object is
