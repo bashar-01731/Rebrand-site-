@@ -64,7 +64,8 @@ src/
     CustomCursor.tsx          dot + trailing ring, pointer-fine only
     SectionCounter.tsx        01 / 06
     ScrollIndicator.tsx
-    ScrollExperience.tsx      the seven stages, in order
+    ScrollExperience.tsx      the stages, in order
+    Concepts.tsx              trade picker + live concept preview
     Section.tsx               one stage; copy animates off scroll progress
     Navbar.tsx  Hero.tsx
     ScrambleIn.tsx  ScrambleText.tsx  BrandLogo.tsx  SquashHamburger.tsx
@@ -75,7 +76,16 @@ src/
 - Sections are transparent: the fixed canvas sits behind all of them, so the
   3D scene is continuous from the hero through the footer. Giving a section an
   opaque background breaks that.
-- The page is seven stages — Intro, Discover, Detail, Transformation,
+- `concepts.ts` holds four trade directions (jewellery, coffee, clothing,
+  online store). Each is a real set of decisions — palette, display face,
+  layout shape, copy — not one template recoloured, because the picker exists
+  to show the studio treats trades differently.
+- The picker sits on its own bone ground. It is a tool the visitor operates
+  rather than a cinematic stage, and without that ground the object's dark
+  mass cuts straight through the ink headline.
+- The hero parallaxes on the pointer: each line has its own travel distance,
+  so moving the mouse separates the sentence by depth.
+- The page is eight stages — Intro, Discover, Detail, Transformation,
   Close-up, Reveal, Final — and `STAGES` in `scroll/keyframes.ts` carries one
   keyframe per stage, evenly spaced, so each section's pass owns one leg of
   the timeline.

@@ -1,4 +1,5 @@
 import Section from './Section';
+import Concepts from './Concepts';
 
 interface ScrollExperienceProps {
   onStart: () => void;
@@ -86,6 +87,8 @@ export default function ScrollExperience({ onStart }: ScrollExperienceProps) {
         }
         body="A brand that behaves the same everywhere it lands, because it was never assembled from parts that had not met."
       />
+
+      <Concepts />
 
       <Section
         id="final"
