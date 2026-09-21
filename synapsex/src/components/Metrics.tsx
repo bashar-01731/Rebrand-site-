@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Parallax3D from './Parallax3D';
 import { VIDEOS } from '../videos';
 
 const METRICS = [
@@ -19,6 +20,7 @@ export default function Metrics() {
         className="absolute inset-0 h-full w-full object-cover"
       />
 
+      <Parallax3D className="relative z-20 h-full w-full">
       <div className="relative z-20 mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 pb-32 pt-32">
         <motion.p
           className="mb-20 text-center text-[13px] uppercase tracking-[0.2em] text-white/40 sm:text-[14px]"
@@ -50,6 +52,7 @@ export default function Metrics() {
           ))}
         </div>
       </div>
+      </Parallax3D>
     </section>
   );
 }

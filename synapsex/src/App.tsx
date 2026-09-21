@@ -11,7 +11,7 @@ import CustomCursor from './components/CustomCursor';
 import SectionCounter from './components/SectionCounter';
 import ScrollIndicator from './components/ScrollIndicator';
 import { useScrollProgress } from './hooks/useScrollProgress';
-import { startSmoothScroll } from './smoothScroll';
+import { playBackgroundVideosOnFirstGesture, startSmoothScroll } from './smoothScroll';
 
 /** Delay before the hero content and navbar reveal themselves. */
 const ENTRANCE_DELAY = 400;
@@ -52,6 +52,9 @@ export default function App() {
 
   // Runs after the sections below have mounted, so snap can find them.
   useEffect(startSmoothScroll, []);
+
+  // Recover the background videos when iOS refused to autoplay them.
+  useEffect(playBackgroundVideosOnFirstGesture, []);
 
   return (
     <div

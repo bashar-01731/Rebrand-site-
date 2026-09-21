@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Parallax3D from './Parallax3D';
 import { VIDEOS } from '../videos';
 
 const CAPABILITIES = [
@@ -33,6 +34,7 @@ export default function Technology() {
       />
 
       {/* Top padding clears the fixed 80px navbar, which overlays this section. */}
+      <Parallax3D className="relative z-20 h-full w-full">
       <div className="relative z-20 flex h-full flex-col px-8 pb-12 pt-24 sm:px-12 sm:pb-16 sm:pt-28 md:px-16">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <motion.h2
@@ -86,6 +88,7 @@ export default function Technology() {
           ))}
         </motion.div>
       </div>
+      </Parallax3D>
     </section>
   );
 }

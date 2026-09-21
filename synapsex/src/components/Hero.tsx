@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import ScrambleIn from './ScrambleIn';
 import { VIDEOS } from '../videos';
 
@@ -14,6 +14,24 @@ interface HeroProps {
 
 export default function Hero({ entranceComplete }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Pointer position, -1..1 across the viewport, heavily smoothed so the type
+  // glides instead of tracking the cursor one-for-one.
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
+  const sx = useSpring(px, { stiffness: 45, damping: 20, mass: 0.9 });
+  const sy = useSpring(py, { stiffness: 45, damping: 20, mass: 0.9 });
+
+  // Each layer travels a different distance, so the sentence separates by
+  // depth rather than sliding as one block.
+  const watermarkX = useTransform(sx, [-1, 1], [16, -16]);
+  const watermarkY = useTransform(sy, [-1, 1], [7, -7]);
+  const leadX = useTransform(sx, [-1, 1], [34, -34]);
+  const leadY = useTransform(sy, [-1, 1], [15, -15]);
+  const counterX = useTransform(sx, [-1, 1], [22, -22]);
+  const counterY = useTransform(sy, [-1, 1], [10, -10]);
+  const bodyX = useTransform(sx, [-1, 1], [13, -13]);
+  const bodyY = useTransform(sy, [-1, 1], [6, -6]);
   const targetTime = useRef(0);
   const seeking = useRef(false);
   const lastX = useRef<number | null>(null);
@@ -39,6 +57,9 @@ export default function Hero({ entranceComplete }: HeroProps) {
     };
 
     const handleMouseMove = (event: MouseEvent) => {
+      px.set((event.clientX / window.innerWidth) * 2 - 1);
+      py.set((event.clientY / window.innerHeight) * 2 - 1);
+
       const duration = video.duration;
       if (!duration || Number.isNaN(duration)) return;
 
@@ -77,7 +98,7 @@ export default function Hero({ entranceComplete }: HeroProps) {
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, []);
+  }, [px, py]);
 
   return (
     <section className="relative h-screen h-[100dvh] w-full overflow-hidden">
@@ -103,7 +124,7 @@ export default function Hero({ entranceComplete }: HeroProps) {
       {/* Watermark */}
       <motion.div
         className="pointer-events-none absolute inset-0 flex items-center justify-center"
-        style={{ transform: 'translateY(50px)' }}
+        style={{ y: 50, x: watermarkX, translateY: watermarkY }}
         initial={{ opacity: 0 }}
         animate={{ opacity: entranceComplete ? 0.1 : 0 }}
         transition={{ duration: 1.8, ease: EASE_OUT }}
@@ -134,14 +155,18 @@ export default function Hero({ entranceComplete }: HeroProps) {
 
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col gap-4">
-            <h1 className="text-[clamp(40px,10vw,100px)] font-light leading-[0.95] tracking-[-0.03em] text-white">
+            <motion.h1
+              className="text-[clamp(40px,10vw,100px)] font-light leading-[0.95] tracking-[-0.03em] text-white"
+              style={{ x: leadX, y: leadY }}
+            >
               <ScrambleIn text="Brain" delay={200} triggered={entranceComplete} />
               <br />
               <ScrambleIn text="And Body" delay={500} triggered={entranceComplete} />
-            </h1>
+            </motion.h1>
 
             <motion.p
               className="max-w-sm text-[13px] leading-relaxed text-white/60 sm:text-[15px]"
+              style={{ x: bodyX, translateY: bodyY }}
               initial={{ opacity: 0, y: 25 }}
               animate={entranceComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 1.4, ease: EASE_OUT, delay: 0.35 }}
@@ -152,11 +177,14 @@ export default function Hero({ entranceComplete }: HeroProps) {
             </motion.p>
           </div>
 
-          <h1 className="text-left text-[clamp(40px,10vw,100px)] font-light leading-[0.95] tracking-[-0.03em] text-white md:text-right">
+          <motion.h1
+            className="text-left text-[clamp(40px,10vw,100px)] font-light leading-[0.95] tracking-[-0.03em] text-white md:text-right"
+            style={{ x: counterX, y: counterY }}
+          >
             <ScrambleIn text="One" delay={700} triggered={entranceComplete} />
             <br />
             <ScrambleIn text="Network" delay={1000} triggered={entranceComplete} />
-          </h1>
+          </motion.h1>
         </div>
       </motion.div>
     </section>
