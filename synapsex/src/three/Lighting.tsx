@@ -40,7 +40,7 @@ export default function Lighting({ stage, shadows }: LightingProps) {
 
   return (
     <>
-      <ambientLight intensity={0.85} color={PALETTE.fill} />
+      <ambientLight intensity={0.18} color={PALETTE.fill} />
 
       <directionalLight
         ref={key}
@@ -55,7 +55,7 @@ export default function Lighting({ stage, shadows }: LightingProps) {
       />
 
       {/* Fill: keeps the shadow side readable without flattening the form. */}
-      <directionalLight position={[-5, -1, 2]} intensity={0.75} color={PALETTE.fill} />
+      <directionalLight position={[-5, -1, 2]} intensity={0.5} color={PALETTE.fill} />
 
       <pointLight ref={rim} position={[0, 1.5, -4]} intensity={6} color={PALETTE.accent} distance={18} />
       <pointLight ref={accent} position={[-3, 0, 3]} intensity={3} color="#ffffff" distance={14} />

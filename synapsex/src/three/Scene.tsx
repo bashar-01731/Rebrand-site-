@@ -1,12 +1,10 @@
-import { useMemo, useRef } from 'react';
+import { useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import * as THREE from 'three';
 import CoreObject from './CoreObject';
 import Particles from './Particles';
 import Lighting from './Lighting';
 import CameraRig from './CameraRig';
 import { createStage, sampleStage } from '../scroll/keyframes';
-import { PALETTE } from './palette';
 import { scrollState } from '../scroll/state';
 import type { Pointer } from '../hooks/useMousePosition';
 
@@ -26,8 +24,9 @@ export default function Scene({ pointer, particleCount, shadows }: SceneProps) {
   const stage = useRef(createStage());
   const scene = useThree((s) => s.scene);
 
-  const fog = useMemo(() => new THREE.FogExp2(PALETTE.fog, 0.05), []);
-  scene.fog = fog;
+  // Deliberately no fog: the canvas sits over the video sections, and fog
+  // would paint a flat colour across footage that is meant to show through.
+  scene.fog = null;
 
   useFrame(() => {
     sampleStage(scrollState.progress, stage.current);

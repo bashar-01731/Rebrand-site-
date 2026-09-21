@@ -69,7 +69,7 @@ export default function Experience({ onReady }: ExperienceProps) {
   if (failed) return null;
 
   return (
-    <div ref={layer} className="fixed inset-0 z-0" aria-hidden="true">
+    <div ref={layer} className="pointer-events-none fixed inset-0 z-[5]" aria-hidden="true">
       <Canvas
         // Cap the pixel ratio: retina at 3x costs far more than it shows.
         dpr={[1, 1.75]}
