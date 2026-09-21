@@ -34,7 +34,9 @@ export function startSmoothScroll(): () => void {
   }
 
   lenis = new Lenis({
-    duration: 1.1,
+    // Well under the 1.2 default: the wheel still eases, but the page stops
+    // close to where the reader let go rather than gliding on.
+    duration: 0.8,
     smoothWheel: true,
   });
 
@@ -42,8 +44,8 @@ export function startSmoothScroll(): () => void {
     type: 'proximity',
     // Snap when the rest point lands within a third of a screen of a section.
     distanceThreshold: '33%',
-    duration: 0.9,
-    debounce: 200,
+    duration: 0.6,
+    debounce: 150,
   });
   snap.addElements(Array.from(document.querySelectorAll('section')), {
     align: ['start'],
