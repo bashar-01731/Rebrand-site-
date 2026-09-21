@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import SynapseXLogo from './SynapseXLogo';
 import SquashHamburger from './SquashHamburger';
 import ScrambleText from './ScrambleText';
+import { scrollToY } from '../smoothScroll';
 
 const PILL_SPRING = { type: 'spring' as const, stiffness: 350, damping: 28 };
 
@@ -20,7 +21,7 @@ export default function Navbar({ entranceComplete }: NavbarProps) {
   const [hovered, setHovered] = useState<string | null>(null);
 
   const scrollTo = (y: number) => {
-    window.scrollTo({ top: y, behavior: 'smooth' });
+    scrollToY(y);
     setMenuOpen(false);
   };
 
