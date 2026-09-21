@@ -14,9 +14,9 @@ export default function Hero({ entranceComplete }: HeroProps) {
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(#16151A 1px, transparent 1px)',
           backgroundSize: '24px 24px',
-          opacity: 0.05,
+          opacity: 0.07,
         }}
       />
 
@@ -25,7 +25,7 @@ export default function Hero({ entranceComplete }: HeroProps) {
         className="pointer-events-none absolute inset-0 flex items-center justify-center"
         style={{ transform: 'translateY(50px)' }}
         initial={{ opacity: 0 }}
-        animate={{ opacity: entranceComplete ? 0.1 : 0 }}
+        animate={{ opacity: entranceComplete ? 0.22 : 0 }}
         transition={{ duration: 1.8, ease: EASE_OUT }}
       >
         <span
@@ -54,14 +54,14 @@ export default function Hero({ entranceComplete }: HeroProps) {
 
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col gap-4">
-            <h1 className="text-[clamp(40px,10vw,100px)] font-light leading-[0.95] tracking-[-0.03em] text-white">
+            <h1 className="text-[clamp(40px,10vw,100px)] font-light leading-[0.95] tracking-[-0.03em] text-ink">
               <ScrambleIn text="Brand" delay={200} triggered={entranceComplete} />
               <br />
               <ScrambleIn text="And Build" delay={500} triggered={entranceComplete} />
             </h1>
 
             <motion.p
-              className="max-w-sm text-[13px] leading-relaxed text-white/60 sm:text-[15px]"
+              className="max-w-sm text-[13px] leading-relaxed text-ink/60 sm:text-[15px]"
               initial={{ opacity: 0, y: 25 }}
               animate={entranceComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 1.4, ease: EASE_OUT, delay: 0.35 }}
@@ -72,7 +72,7 @@ export default function Hero({ entranceComplete }: HeroProps) {
             </motion.p>
           </div>
 
-          <h1 className="text-left text-[clamp(40px,10vw,100px)] font-light leading-[0.95] tracking-[-0.03em] text-white md:text-right">
+          <h1 className="text-left text-[clamp(40px,10vw,100px)] font-light leading-[0.95] tracking-[-0.03em] text-ink md:text-right">
             <ScrambleIn text="One" delay={700} triggered={entranceComplete} />
             <br />
             <ScrambleIn text="Studio" delay={1000} triggered={entranceComplete} />

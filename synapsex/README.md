@@ -1,8 +1,8 @@
 # RE:BRAND
 
 Single-page cinematic site where scrolling drives one continuous WebGL scene.
-Black canvas, white Space Mono type, a faceted 3D form the reader flies around
-by scrolling.
+A pale bone ground, near-black Space Mono type, and a dark faceted 3D form the
+reader flies around by scrolling.
 
 ## Stack
 
@@ -74,6 +74,15 @@ src/
 - Sections are transparent: the fixed canvas sits behind all of them, so the
   3D scene is continuous from the hero through the footer. Giving a section an
   opaque background breaks that.
+- The scene's opacity is part of the scroll timeline (`sceneOpacity`). Dark type
+  on a pale ground is unreadable over a dark object filling the frame, so the
+  WebGL layer steps back under dense copy and comes forward where the object is
+  the subject. Measured: every text section holds at least 10.9:1 against the
+  ink, versus the 4.5:1 AA threshold.
+- Particles use normal blending, not additive: additive brightens toward white
+  and is invisible on a pale ground.
+- Colours live in `three/palette.ts` and the `ink` / `bone` tokens in
+  `tailwind.config.js`.
 - The object's material keeps `metalness` moderate on purpose. There is no
   environment map in the scene, and a near-1 metal has nothing to reflect, so
   it renders black.

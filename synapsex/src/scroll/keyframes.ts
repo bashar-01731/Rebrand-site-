@@ -21,6 +21,12 @@ export interface Stage {
   rimLight: number;
   /** Particle opacity, 0..1. */
   particles: number;
+  /**
+   * Opacity of the whole WebGL layer, 0..1. Dark type sits on a pale ground,
+   * so the scene steps back wherever dense copy needs to be read and comes
+   * forward where the object is the subject.
+   */
+  sceneOpacity: number;
 }
 
 /** Smoothstep, so movement eases in and out of every key instead of sliding linearly. */
@@ -44,77 +50,85 @@ export const STAGES: Stage[] = [
     objectPosition: [0, 0, 0],
     objectRotation: [0, 0, 0],
     objectScale: 1,
-    cameraPosition: [0, 0, 6],
+    cameraPosition: [0, 0, 6.4],
     cameraFov: 46,
     keyLight: 1,
     rimLight: 0.6,
     particles: 0.35,
+    sceneOpacity: 1,
   },
   {
     at: 0.15,
-    objectPosition: [0.95, -0.05, 0.3],
+    objectPosition: [1.15, -0.05, 0.1],
     objectRotation: [0.25, 0.8, 0.05],
-    objectScale: 1.05,
-    cameraPosition: [0, 0.25, 5.2],
-    cameraFov: 43,
+    objectScale: 1,
+    cameraPosition: [0, 0.25, 6],
+    cameraFov: 44,
     keyLight: 1.15,
     rimLight: 0.9,
     particles: 0.55,
+    sceneOpacity: 0.85,
   },
   {
     at: 0.3,
-    objectPosition: [-0.7, 0.1, 0.85],
+    objectPosition: [-1.25, 0.1, 0.3],
     objectRotation: [0.55, 1.9, 0.12],
-    objectScale: 1.15,
-    cameraPosition: [0.7, -0.1, 4.1],
-    cameraFov: 38,
+    objectScale: 0.95,
+    cameraPosition: [0.5, -0.1, 5.6],
+    cameraFov: 42,
     keyLight: 0.75,
     rimLight: 1.6,
     particles: 0.85,
+    // Metrics: three centred columns span the width, so step well back.
+    sceneOpacity: 0.32,
   },
   {
     at: 0.47,
-    objectPosition: [0.5, -0.25, 1.2],
+    objectPosition: [1.1, -0.25, 0.4],
     objectRotation: [1.1, 3.1, 0.35],
-    objectScale: 1.1,
-    cameraPosition: [-1, 0.6, 3.5],
-    cameraFov: 35,
+    objectScale: 1,
+    cameraPosition: [-0.8, 0.5, 5.2],
+    cameraFov: 40,
     keyLight: 1.3,
     rimLight: 1.2,
     particles: 0.7,
+    sceneOpacity: 0.4,
   },
   {
     at: 0.63,
-    objectPosition: [0, 0, 1.9],
+    objectPosition: [0.15, 0, 0.7],
     objectRotation: [1.5, 4.3, 0.45],
-    objectScale: 1.32,
-    cameraPosition: [0, 0.1, 2.5],
-    cameraFov: 30,
+    objectScale: 1.05,
+    cameraPosition: [0, 0.1, 4.4],
+    cameraFov: 36,
     keyLight: 0.9,
     rimLight: 2,
     particles: 1,
+    sceneOpacity: 0.55,
   },
   {
     at: 0.82,
-    objectPosition: [-0.35, 0.2, 0.5],
+    objectPosition: [-1.05, 0.2, 0.1],
     objectRotation: [1.2, 5.3, 0.2],
-    objectScale: 1,
-    cameraPosition: [0, 0.35, 4.8],
+    objectScale: 0.95,
+    cameraPosition: [0, 0.35, 5.6],
     cameraFov: 43,
     keyLight: 1.6,
     rimLight: 0.8,
     particles: 0.5,
+    sceneOpacity: 0.42,
   },
   {
     at: 1,
     objectPosition: [0, -0.05, 0],
     objectRotation: [0.9, 6.28, 0],
-    objectScale: 1.12,
-    cameraPosition: [0, 0, 5.6],
-    cameraFov: 47,
+    objectScale: 1,
+    cameraPosition: [0, 0, 6],
+    cameraFov: 46,
     keyLight: 1.25,
     rimLight: 1,
     particles: 0.3,
+    sceneOpacity: 0.85,
   },
 ];
 
@@ -142,5 +156,6 @@ export function sampleStage(progress: number, out: Stage): Stage {
   out.keyLight = lerp(a.keyLight, b.keyLight, t);
   out.rimLight = lerp(a.rimLight, b.rimLight, t);
   out.particles = lerp(a.particles, b.particles, t);
+  out.sceneOpacity = lerp(a.sceneOpacity, b.sceneOpacity, t);
   return out;
 }

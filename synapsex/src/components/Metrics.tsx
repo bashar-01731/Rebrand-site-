@@ -11,7 +11,7 @@ export default function Metrics() {
     <section className="relative min-h-screen w-full overflow-hidden">
       <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 pb-32 pt-32">
         <motion.p
-          className="mb-20 text-center text-[13px] uppercase tracking-[0.2em] text-white/40 sm:text-[14px]"
+          className="mb-20 text-center text-[13px] uppercase tracking-[0.2em] text-ink/40 sm:text-[14px]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -30,10 +30,10 @@ export default function Metrics() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, delay: i * 0.15 }}
             >
-              <div className="text-[clamp(48px,10vw,96px)] font-light leading-none tracking-[-0.04em] text-white">
+              <div className="text-[clamp(48px,10vw,96px)] font-light leading-none tracking-[-0.04em] text-ink">
                 {metric.value}
               </div>
-              <div className="mt-4 text-[13px] tracking-wide text-white/40 sm:text-[15px]">
+              <div className="mt-4 text-[13px] tracking-wide text-ink/40 sm:text-[15px]">
                 {metric.label}
               </div>
             </motion.div>

@@ -6,16 +6,16 @@ export default function Footer() {
       <div className="flex w-full flex-col justify-between p-10 sm:p-16">
         <div>
           <div className="mb-8 flex items-center gap-2.5">
-            <BrandLogo size={18} className="text-white/70" />
-            <span className="text-[15px] font-medium tracking-tight text-white/70">RE:BRAND</span>
+            <BrandLogo size={18} className="text-ink/70" />
+            <span className="text-[15px] font-medium tracking-tight text-ink/70">RE:BRAND</span>
           </div>
-          <p className="max-w-sm text-[14px] leading-relaxed text-white/40 sm:text-[15px]">
+          <p className="max-w-sm text-[14px] leading-relaxed text-ink/40 sm:text-[15px]">
             Premium websites for businesses that have outgrown the template they started
             on. Built by hand, shipped fast, yours to keep.
           </p>
         </div>
 
-        <p className="mt-12 text-[12px] text-white/25">
+        <p className="mt-12 text-[12px] text-ink/25">
           © 2026 RE:BRAND Studio. All rights reserved.
         </p>
       </div>

@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import type { Stage } from '../scroll/keyframes';
 import type { Pointer } from '../hooks/useMousePosition';
 import { scrollState } from '../scroll/state';
+import { PALETTE } from './palette';
 
 interface CoreObjectProps {
   stage: Stage;
@@ -59,7 +60,7 @@ export default function CoreObject({ stage, pointer }: CoreObjectProps) {
     <group ref={group}>
       <mesh ref={solid} geometry={geometry} castShadow receiveShadow>
         <meshStandardMaterial
-          color="#23232b"
+          color={PALETTE.object}
           // No environment map in the scene, so keep metalness moderate:
           // a near-1 metal has nothing to reflect and renders as black.
           metalness={0.45}
@@ -70,10 +71,10 @@ export default function CoreObject({ stage, pointer }: CoreObjectProps) {
 
       <mesh geometry={shell}>
         <meshBasicMaterial
-          color="#8E7F94"
+          color={PALETTE.shell}
           wireframe
           transparent
-          opacity={0.14}
+          opacity={0.22}
           depthWrite={false}
         />
       </mesh>

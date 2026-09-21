@@ -16,13 +16,13 @@ export default function Architecture() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 1.0 }}
         >
-          <p className="mb-8 text-[13px] uppercase tracking-[0.2em] text-white/40 sm:text-[14px]">
+          <p className="mb-8 text-[13px] uppercase tracking-[0.2em] text-ink/40 sm:text-[14px]">
             Process
           </p>
-          <h2 className="mb-10 text-[clamp(28px,6vw,56px)] font-light leading-[1.15] tracking-[-0.02em] text-white">
+          <h2 className="mb-10 text-[clamp(28px,6vw,56px)] font-light leading-[1.15] tracking-[-0.02em] text-ink">
             Three phases. Zero guesswork.
           </h2>
-          <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-white/45 sm:text-[17px]">
+          <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-ink/45 sm:text-[17px]">
             Define sets the positioning and what the site has to prove. Design turns that
             into type, colour, and motion. Ship hands over a fast, hand-built front-end you
             own outright.
@@ -39,12 +39,12 @@ export default function Architecture() {
           {LAYERS.map((layer) => (
             <div
               key={layer.index}
-              className="flex h-[72px] w-full max-w-md items-center justify-between rounded-lg border border-white/10 px-6"
+              className="flex h-[72px] w-full max-w-md items-center justify-between rounded-lg border border-ink/10 px-6"
             >
-              <span className="text-[12px] uppercase tracking-[0.15em] text-white/30">
+              <span className="text-[12px] uppercase tracking-[0.15em] text-ink/30">
                 {layer.index}
               </span>
-              <span className="text-[16px] font-light text-white sm:text-[18px]">{layer.name}</span>
+              <span className="text-[16px] font-light text-ink sm:text-[18px]">{layer.name}</span>
             </div>
           ))}
         </motion.div>

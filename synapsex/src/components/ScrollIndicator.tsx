@@ -13,10 +13,10 @@ export default function ScrollIndicator({ visible }: ScrollIndicatorProps) {
       animate={{ opacity: visible ? 1 : 0 }}
       transition={{ duration: 0.8 }}
     >
-      <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">Scroll</span>
-      <div className="h-10 w-px overflow-hidden bg-white/15">
+      <span className="text-[10px] uppercase tracking-[0.3em] text-ink/40">Scroll</span>
+      <div className="h-10 w-px overflow-hidden bg-ink/15">
         <motion.div
-          className="h-4 w-full bg-white/70"
+          className="h-4 w-full bg-ink/70"
           animate={{ y: [-16, 40] }}
           transition={{ duration: 2.1, repeat: Infinity, ease: 'easeInOut' }}
         />
