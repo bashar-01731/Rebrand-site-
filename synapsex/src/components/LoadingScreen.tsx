@@ -53,22 +53,22 @@ export default function LoadingScreen({ ready, onDone }: LoadingScreenProps) {
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-bone"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.9, ease: [0.215, 0.61, 0.355, 1] }}
         >
-          <p className="text-[11px] uppercase tracking-[0.35em] text-white/50 sm:text-[12px]">
+          <p className="text-[11px] uppercase tracking-[0.35em] text-ink/50 sm:text-[12px]">
             Loading Experience
           </p>
 
-          <p className="mt-6 text-[clamp(48px,12vw,96px)] font-light leading-none tracking-[-0.04em] text-white tabular-nums">
+          <p className="mt-6 text-[clamp(48px,12vw,96px)] font-light leading-none tracking-[-0.04em] text-ink tabular-nums">
             {String(percent).padStart(3, '0')}
           </p>
 
-          <div className="mt-8 h-px w-40 overflow-hidden bg-white/15 sm:w-56">
+          <div className="mt-8 h-px w-40 overflow-hidden bg-ink/15 sm:w-56">
             <motion.div
-              className="h-full bg-white"
+              className="h-full bg-ink"
               animate={{ width: `${percent}%` }}
               transition={{ duration: 0.3, ease: 'linear' }}
             />

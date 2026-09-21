@@ -3,6 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import type { Stage } from '../scroll/keyframes';
 import type { Pointer } from '../hooks/useMousePosition';
+import { PALETTE } from './palette';
 
 interface ParticlesProps {
   count: number;
@@ -62,11 +63,10 @@ export default function Particles({ count, stage, pointer }: ParticlesProps) {
         ref={material}
         size={0.035}
         sizeAttenuation
-        color="#cfc7d4"
+        color={PALETTE.particle}
         transparent
         opacity={0}
         depthWrite={false}
-        blending={THREE.AdditiveBlending}
       />
     </points>
   );

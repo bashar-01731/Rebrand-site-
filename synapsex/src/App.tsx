@@ -45,7 +45,7 @@ export default function App() {
 
   return (
     <div
-      className="relative w-full text-white"
+      className="relative w-full text-ink"
       style={{ fontFamily: '"Space Mono", monospace' }}
     >
       <LoadingScreen ready={sceneReady} onDone={handleLoaderDone} />

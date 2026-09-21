@@ -6,6 +6,7 @@ import Particles from './Particles';
 import Lighting from './Lighting';
 import CameraRig from './CameraRig';
 import { createStage, sampleStage } from '../scroll/keyframes';
+import { PALETTE } from './palette';
 import { scrollState } from '../scroll/state';
 import type { Pointer } from '../hooks/useMousePosition';
 
@@ -25,7 +26,7 @@ export default function Scene({ pointer, particleCount, shadows }: SceneProps) {
   const stage = useRef(createStage());
   const scene = useThree((s) => s.scene);
 
-  const fog = useMemo(() => new THREE.FogExp2('#050506', 0.052), []);
+  const fog = useMemo(() => new THREE.FogExp2(PALETTE.fog, 0.05), []);
   scene.fog = fog;
 
   useFrame(() => {

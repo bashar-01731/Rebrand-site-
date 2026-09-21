@@ -26,7 +26,7 @@ export default function Technology() {
       <div className="relative z-10 flex h-full flex-col px-8 pb-12 pt-24 sm:px-12 sm:pb-16 sm:pt-28 md:px-16">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <motion.h2
-            className="text-[clamp(36px,8vw,72px)] font-light leading-[0.95] tracking-[-0.03em] text-white"
+            className="text-[clamp(36px,8vw,72px)] font-light leading-[0.95] tracking-[-0.03em] text-ink"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -38,7 +38,7 @@ export default function Technology() {
           </motion.h2>
 
           <motion.p
-            className="max-w-xs text-[13px] leading-relaxed text-white/50 sm:text-[15px] md:pt-2 md:text-right"
+            className="max-w-xs text-[13px] leading-relaxed text-ink/50 sm:text-[15px] md:pt-2 md:text-right"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -66,10 +66,10 @@ export default function Technology() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.7, delay: i * 0.1 }}
             >
-              <h3 className="mb-2 text-[14px] font-normal text-white sm:text-[16px]">
+              <h3 className="mb-2 text-[14px] font-normal text-ink sm:text-[16px]">
                 {item.title}
               </h3>
-              <p className="text-[12px] leading-relaxed text-white/40 sm:text-[14px]">
+              <p className="text-[12px] leading-relaxed text-ink/40 sm:text-[14px]">
                 {item.description}
               </p>
             </motion.div>

@@ -24,19 +24,19 @@ export default function SquashHamburger({ isOpen, compact = false }: SquashHambu
   return (
     <div className="relative" style={{ width, height }}>
       <motion.span
-        className="absolute left-0 block bg-white"
+        className="absolute left-0 block bg-ink"
         style={{ ...barStyle, top: 0 }}
         animate={isOpen ? { rotate: 45, y: center } : { rotate: 0, y: 0 }}
         transition={SPRING}
       />
       <motion.span
-        className="absolute left-0 block bg-white"
+        className="absolute left-0 block bg-ink"
         style={{ ...barStyle, top: center }}
         animate={isOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
         transition={SPRING}
       />
       <motion.span
-        className="absolute left-0 block bg-white"
+        className="absolute left-0 block bg-ink"
         style={{ ...barStyle, bottom: 0 }}
         animate={isOpen ? { rotate: -45, y: -center } : { rotate: 0, y: 0 }}
         transition={SPRING}

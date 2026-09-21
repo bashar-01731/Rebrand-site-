@@ -37,8 +37,8 @@ export default function CustomCursor() {
         const scale = hovering ? 1.9 : 1;
         ring.current.style.transform = `translate3d(${ringPos.x}px, ${ringPos.y}px, 0) translate(-50%, -50%) scale(${scale})`;
         ring.current.style.borderColor = hovering
-          ? 'rgba(255,255,255,0.75)'
-          : 'rgba(255,255,255,0.3)';
+          ? 'rgba(22,21,26,0.75)'
+          : 'rgba(22,21,26,0.3)';
       }
       frame = requestAnimationFrame(loop);
     };
@@ -56,10 +56,10 @@ export default function CustomCursor() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[90] hidden sm:block" aria-hidden="true">
-      <div ref={dot} className="absolute left-0 top-0 h-1 w-1 rounded-full bg-white" />
+      <div ref={dot} className="absolute left-0 top-0 h-1 w-1 rounded-full bg-ink" />
       <div
         ref={ring}
-        className="absolute left-0 top-0 h-8 w-8 rounded-full border border-white/30 transition-[border-color] duration-200"
+        className="absolute left-0 top-0 h-8 w-8 rounded-full border border-ink/30 transition-[border-color] duration-200"
       />
     </div>
   );

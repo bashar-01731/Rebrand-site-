@@ -19,14 +19,14 @@ export default function SectionCounter({ index, total, visible }: SectionCounter
     >
       <motion.span
         key={index}
-        className="text-[13px] tabular-nums text-white sm:text-[15px]"
+        className="text-[13px] tabular-nums text-ink sm:text-[15px]"
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
         {pad(index + 1)}
       </motion.span>
-      <span className="text-[13px] tabular-nums text-white/35 sm:text-[15px]">
+      <span className="text-[13px] tabular-nums text-ink/35 sm:text-[15px]">
         / {pad(total)}
       </span>
     </motion.div>
