@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Parallax3D from './Parallax3D';
 
 const LAYERS = [
   { index: 'Layer 1', name: 'Capture' },
@@ -9,6 +10,7 @@ const LAYERS = [
 export default function Architecture() {
   return (
     <section className="relative flex min-h-screen w-full items-center justify-center">
+      <Parallax3D className="relative z-20 h-full w-full">
       <div className="mx-auto max-w-3xl px-6 py-32 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -48,6 +50,7 @@ export default function Architecture() {
           ))}
         </motion.div>
       </div>
+      </Parallax3D>
     </section>
   );
 }

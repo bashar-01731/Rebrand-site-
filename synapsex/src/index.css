@@ -31,6 +31,20 @@ body {
   font-family: var(--font-sans);
 }
 
+/* iOS Safari paints its own start-playback button over any video it has not
+   autoplayed - which includes the hero, paused by design, and every other
+   video when Low Power Mode blocks autoplay. These are backgrounds, never
+   meant to be operated, so the native chrome is suppressed. */
+video::-webkit-media-controls,
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+  opacity: 0;
+}
+
 /* Lenis smooth scroll */
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;

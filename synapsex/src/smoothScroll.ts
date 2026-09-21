@@ -82,3 +82,31 @@ export function startSmoothScroll(): () => void {
     lenis = null;
   };
 }
+
+/**
+ * Start any background video iOS refused to autoplay.
+ *
+ * Low Power Mode blocks autoplay outright, which is also what makes Safari
+ * paint its own play button over the frame. A user gesture lifts the block, so
+ * the first tap or click on the page kicks every muted background video that
+ * is still sitting paused. The hero is excluded: it is paused by design and
+ * scrubbed by the pointer.
+ */
+export function playBackgroundVideosOnFirstGesture(): () => void {
+  const start = () => {
+    document.querySelectorAll<HTMLVideoElement>('video[autoplay]').forEach((video) => {
+      if (video.paused) video.play().catch(() => {});
+    });
+  };
+
+  const opts = { once: true, passive: true } as const;
+  window.addEventListener('pointerdown', start, opts);
+  window.addEventListener('touchstart', start, opts);
+  window.addEventListener('keydown', start, opts);
+
+  return () => {
+    window.removeEventListener('pointerdown', start);
+    window.removeEventListener('touchstart', start);
+    window.removeEventListener('keydown', start);
+  };
+}
