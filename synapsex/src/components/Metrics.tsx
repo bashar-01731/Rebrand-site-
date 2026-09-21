@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { VIDEOS } from '../videos';
 
 const METRICS = [
   { value: '2.4ms', label: 'Synaptic Latency' },
@@ -10,15 +9,6 @@ const METRICS = [
 export default function Metrics() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
-      <video
-        src={VIDEOS.metrics}
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-
       <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 pb-32 pt-32">
         <motion.p
           className="mb-20 text-center text-[13px] uppercase tracking-[0.2em] text-white/40 sm:text-[14px]"

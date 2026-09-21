@@ -3,6 +3,21 @@ import Snap from 'lenis/snap';
 
 let lenis: Lenis | null = null;
 
+/** Subscribers notified on every Lenis scroll frame (used to drive ScrollTrigger). */
+const scrollSubscribers = new Set<() => void>();
+
+/**
+ * Subscribe to Lenis's scroll frames. Lenis moves the page itself, so anything
+ * that derives from scroll position has to update on these frames rather than
+ * waiting for native scroll events. Returns an unsubscribe function.
+ */
+export function onLenisScroll(handler: () => void): () => void {
+  scrollSubscribers.add(handler);
+  return () => {
+    scrollSubscribers.delete(handler);
+  };
+}
+
 /**
  * Scroll to an absolute Y position, routed through Lenis so the move is
  * smoothed and the snap engine stays in sync. Falls back to native smooth
@@ -38,6 +53,10 @@ export function startSmoothScroll(): () => void {
     // close to where the reader let go rather than gliding on.
     duration: 0.8,
     smoothWheel: true,
+  });
+
+  lenis.on('scroll', () => {
+    scrollSubscribers.forEach((handler) => handler());
   });
 
   const snap = new Snap(lenis, {

@@ -22,7 +22,14 @@
 
 html,
 body {
-  background: #000;
+  /* Atmospheric ground the WebGL layer composites over: a near-black base with
+     two soft off-centre glows, so the page has depth even before the canvas
+     paints and wherever WebGL is unavailable. */
+  background-color: #050506;
+  background-image:
+    radial-gradient(900px 600px at 18% 12%, rgba(142, 127, 148, 0.16), transparent 70%),
+    radial-gradient(1100px 700px at 82% 78%, rgba(90, 96, 120, 0.13), transparent 72%);
+  background-attachment: fixed;
   color: #fff;
   overflow-x: hidden;
   overflow-y: auto;

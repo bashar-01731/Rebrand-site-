@@ -1,10 +1,5 @@
-import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import ScrambleIn from './ScrambleIn';
-import { VIDEOS } from '../videos';
-
-/** Fraction of the video timeline covered by one full-viewport mouse sweep. */
-const SCRUB_SENSITIVITY = 0.8;
 
 const EASE_OUT = [0.215, 0.61, 0.355, 1.0] as const;
 
@@ -13,83 +8,8 @@ interface HeroProps {
 }
 
 export default function Hero({ entranceComplete }: HeroProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const targetTime = useRef(0);
-  const seeking = useRef(false);
-  const lastX = useRef<number | null>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const handleLoaded = () => {
-      video.pause();
-      video.currentTime = 0;
-      targetTime.current = 0;
-    };
-
-    // Chain seeks off `seeked` rather than firing one per mousemove: the
-    // decoder only ever has one outstanding request, so frames don't drop.
-    const handleSeeked = () => {
-      if (Math.abs(video.currentTime - targetTime.current) > 0.01) {
-        video.currentTime = targetTime.current;
-      } else {
-        seeking.current = false;
-      }
-    };
-
-    const handleMouseMove = (event: MouseEvent) => {
-      const duration = video.duration;
-      if (!duration || Number.isNaN(duration)) return;
-
-      if (lastX.current === null) {
-        lastX.current = event.clientX;
-        return;
-      }
-
-      const deltaX = event.clientX - lastX.current;
-      lastX.current = event.clientX;
-
-      const next =
-        targetTime.current + (deltaX / window.innerWidth) * duration * SCRUB_SENSITIVITY;
-      targetTime.current = Math.min(Math.max(next, 0), duration - 0.05);
-
-      if (!seeking.current) {
-        seeking.current = true;
-        video.currentTime = targetTime.current;
-      }
-    };
-
-    const handleMouseLeave = () => {
-      lastX.current = null;
-    };
-
-    video.addEventListener('loadedmetadata', handleLoaded);
-    video.addEventListener('seeked', handleSeeked);
-    window.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseleave', handleMouseLeave);
-
-    if (video.readyState >= 1) handleLoaded();
-
-    return () => {
-      video.removeEventListener('loadedmetadata', handleLoaded);
-      video.removeEventListener('seeked', handleSeeked);
-      window.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, []);
-
   return (
     <section className="relative h-screen h-[100dvh] w-full overflow-hidden">
-      <video
-        ref={videoRef}
-        src={VIDEOS.hero}
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-
       {/* Dot grid */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -106,7 +26,7 @@ export default function Hero({ entranceComplete }: HeroProps) {
         style={{ transform: 'translateY(50px)' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: entranceComplete ? 0.1 : 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1.8, ease: EASE_OUT }}
       >
         <span
           className="select-none whitespace-nowrap uppercase leading-none"
@@ -126,9 +46,9 @@ export default function Hero({ entranceComplete }: HeroProps) {
 
       <motion.div
         className="relative z-10 flex h-full flex-col px-4 pb-8 pt-20 sm:px-6 sm:pb-12 sm:pt-24 md:px-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: entranceComplete ? 1 : 0 }}
-        transition={{ duration: 1 }}
+        initial={{ opacity: 0, y: 18 }}
+        animate={entranceComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+        transition={{ duration: 1.6, ease: EASE_OUT }}
       >
         <div className="flex-1" />
 
@@ -144,9 +64,9 @@ export default function Hero({ entranceComplete }: HeroProps) {
               className="max-w-sm text-[13px] leading-relaxed text-white/60 sm:text-[15px]"
               initial={{ opacity: 0, y: 25 }}
               animate={entranceComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
-              transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.2 }}
+              transition={{ duration: 1.4, ease: EASE_OUT, delay: 0.35 }}
             >
-              Built at the intersection of neuroscience and artificial intelligence. SynapseX
+              Built at the intersection of neuroscience and artificial intelligence. RE:BRAND
               continuously maps neural pathways, cognitive load, and physiological states into a
               single adaptive intelligence layer.
             </motion.p>

@@ -3,13 +3,13 @@ const QUADRANT =
 
 const ROTATIONS = [0, 90, 180, 270];
 
-interface SynapseXLogoProps {
+interface BrandLogoProps {
   className?: string;
   size?: number;
 }
 
 /** Four-fold rotationally symmetric mark. */
-export default function SynapseXLogo({ className, size = 18 }: SynapseXLogoProps) {
+export default function BrandLogo({ className, size = 18 }: BrandLogoProps) {
   return (
     <svg
       width={size}
