@@ -10,13 +10,13 @@ export default function Footer() {
             <span className="text-[15px] font-medium tracking-tight text-white/70">RE:BRAND</span>
           </div>
           <p className="max-w-sm text-[14px] leading-relaxed text-white/40 sm:text-[15px]">
-            The next evolution of human-machine interaction. Built for those who refuse to be
-            limited by biology alone.
+            Premium websites for businesses that have outgrown the template they started
+            on. Built by hand, shipped fast, yours to keep.
           </p>
         </div>
 
         <p className="mt-12 text-[12px] text-white/25">
-          © 2026 RE:BRAND Labs. All rights reserved.
+          © 2026 RE:BRAND Studio. All rights reserved.
         </p>
       </div>
     </footer>

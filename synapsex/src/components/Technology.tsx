@@ -2,20 +2,20 @@ import { motion } from 'framer-motion';
 
 const CAPABILITIES = [
   {
-    title: 'Cortical Mapping',
-    description: 'Real-time spatial reconstruction of active neural regions.',
+    title: 'Brand Strategy',
+    description: 'Positioning, voice, and the story the work has to carry.',
   },
   {
-    title: 'Signal Isolation',
-    description: 'Separates cognitive intent from biological noise.',
+    title: 'Visual Identity',
+    description: 'Type, colour, and motion that hold across every surface.',
   },
   {
-    title: 'State Prediction',
-    description: 'Anticipates cognitive transitions before they occur.',
+    title: 'Interface Design',
+    description: 'Layouts built around how people actually read and act.',
   },
   {
-    title: 'Loop Feedback',
-    description: 'Closed-loop adjustment based on outcome correlation.',
+    title: 'Production Build',
+    description: 'Hand-written front-end, fast on real devices and networks.',
   },
 ];
 
@@ -32,9 +32,9 @@ export default function Technology() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 1.0 }}
           >
-            Adaptive
+            Considered
             <br />
-            Intelligence
+            Throughout
           </motion.h2>
 
           <motion.p
@@ -44,8 +44,8 @@ export default function Technology() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 1.0, delay: 0.2 }}
           >
-            The system learns your neural baseline within 72 hours. From there, every cognitive
-            state is mapped, predicted, and optimized in real time.
+            We learn how your business actually wins work before drawing a single frame.
+            Everything after that is in service of making that argument obvious.
           </motion.p>
         </div>
 
