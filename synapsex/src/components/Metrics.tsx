@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 
 const METRICS = [
-  { value: '2.4ms', label: 'Synaptic Latency' },
-  { value: '99.7%', label: 'Signal Accuracy' },
-  { value: '140B', label: 'Neural Parameters' },
+  { value: '0.9s', label: 'Time To First Paint' },
+  { value: '100', label: 'Lighthouse Performance' },
+  { value: '6', label: 'Concept Builds Shipped' },
 ];
 
 export default function Metrics() {
@@ -17,7 +17,7 @@ export default function Metrics() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1.2 }}
         >
-          Performance Metrics
+          Studio Standards
         </motion.p>
 
         <div className="grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-8">

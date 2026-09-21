@@ -9,7 +9,7 @@ const PILL_SPRING = { type: 'spring' as const, stiffness: 350, damping: 28 };
 
 const NAV_LINKS = [
   { label: 'About', target: () => window.innerHeight },
-  { label: 'Metrics', target: () => window.innerHeight * 2 },
+  { label: 'Studio', target: () => window.innerHeight * 2 },
 ];
 
 interface NavbarProps {
@@ -92,15 +92,15 @@ export default function Navbar({ entranceComplete }: NavbarProps) {
         <motion.button
           type="button"
           className="flex h-12 items-center gap-2 rounded-full bg-white px-6 text-black"
-          onMouseEnter={() => setHovered('Download')}
+          onMouseEnter={() => setHovered('Start a project')}
           onMouseLeave={() => setHovered(null)}
           whileHover={{ scale: 1.03, backgroundColor: '#e2e2e6' }}
           whileTap={{ scale: 0.97 }}
         >
-          <i className="bi bi-apple text-[17px] leading-none" aria-hidden="true" />
+          <i className="bi bi-arrow-right text-[17px] leading-none" aria-hidden="true" />
           <ScrambleText
-            text="Download"
-            isHovered={hovered === 'Download'}
+            text="Start a project"
+            isHovered={hovered === 'Start a project'}
             className="text-[15px] font-normal"
           />
         </motion.button>
@@ -162,8 +162,8 @@ export default function Navbar({ entranceComplete }: NavbarProps) {
           className="ml-auto flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-white px-3.5 text-black"
           whileTap={{ scale: 0.97 }}
         >
-          <i className="bi bi-apple text-[14px] leading-none" aria-hidden="true" />
-          <span className="text-[13px] font-normal">Download</span>
+          <i className="bi bi-arrow-right text-[14px] leading-none" aria-hidden="true" />
+          <span className="text-[13px] font-normal">Start</span>
         </motion.button>
       </nav>
     </motion.header>

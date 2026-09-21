@@ -40,7 +40,7 @@ export default function Hero({ entranceComplete }: HeroProps) {
             color: 'transparent',
           }}
         >
-          Transcendence
+          Identity
         </span>
       </motion.div>
 
@@ -55,9 +55,9 @@ export default function Hero({ entranceComplete }: HeroProps) {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col gap-4">
             <h1 className="text-[clamp(40px,10vw,100px)] font-light leading-[0.95] tracking-[-0.03em] text-white">
-              <ScrambleIn text="Brain" delay={200} triggered={entranceComplete} />
+              <ScrambleIn text="Brand" delay={200} triggered={entranceComplete} />
               <br />
-              <ScrambleIn text="And Body" delay={500} triggered={entranceComplete} />
+              <ScrambleIn text="And Build" delay={500} triggered={entranceComplete} />
             </h1>
 
             <motion.p
@@ -66,16 +66,16 @@ export default function Hero({ entranceComplete }: HeroProps) {
               animate={entranceComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 1.4, ease: EASE_OUT, delay: 0.35 }}
             >
-              Built at the intersection of neuroscience and artificial intelligence. RE:BRAND
-              continuously maps neural pathways, cognitive load, and physiological states into a
-              single adaptive intelligence layer.
+              Built at the intersection of craft and commerce. RE:BRAND designs premium
+              websites that make a business look established, modern, and genuinely worth
+              trusting — from first sketch to shipped build.
             </motion.p>
           </div>
 
           <h1 className="text-left text-[clamp(40px,10vw,100px)] font-light leading-[0.95] tracking-[-0.03em] text-white md:text-right">
             <ScrambleIn text="One" delay={700} triggered={entranceComplete} />
             <br />
-            <ScrambleIn text="Network" delay={1000} triggered={entranceComplete} />
+            <ScrambleIn text="Studio" delay={1000} triggered={entranceComplete} />
           </h1>
         </div>
       </motion.div>

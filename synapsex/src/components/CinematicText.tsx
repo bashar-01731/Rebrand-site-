@@ -32,10 +32,11 @@ export default function CinematicText() {
       >
         <motion.div className="max-w-5xl" style={{ transform, opacity }}>
           <p className="select-none px-6 text-center font-sans text-[22px] font-normal leading-[1.35] tracking-[-0.02em] text-white sm:px-12 sm:text-[30px] md:text-[36px] lg:text-[42px]">
-            A neural-AI interface built on the architecture of the human nervous system. RE:BRAND
-            translates synaptic activity into computational intelligence. Every signal becomes
-            measurable, structured, and visible. It continuously reconstructs internal state as a
-            dynamic neural map. Biological noise is filtered into actionable cognitive patterns.
+            A design studio built on the belief that a website is the product, not the
+            brochure. We translate what a business actually does into something a stranger
+            understands in seconds. Every decision is deliberate, defensible, and visible in the
+            work. The result is an identity that holds up across every surface it lands on.
+            Noise is stripped out until only the argument remains.
           </p>
         </motion.div>
       </div>
