@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Anton+SC&family=Playfair+Display:wght@400;500&family=Outfit:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Anton+SC&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 @tailwind base;
@@ -22,15 +22,8 @@
 
 html,
 body {
-  /* Atmospheric ground the WebGL layer composites over: a near-black base with
-     two soft off-centre glows, so the page has depth even before the canvas
-     paints and wherever WebGL is unavailable. */
-  background-color: #F2F1F4;
-  background-image:
-    radial-gradient(900px 600px at 18% 12%, rgba(142, 127, 148, 0.18), transparent 70%),
-    radial-gradient(1100px 700px at 82% 78%, rgba(120, 126, 150, 0.14), transparent 72%);
-  background-attachment: fixed;
-  color: #16151A;
+  background: #000;
+  color: #fff;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-font-smoothing: antialiased;

@@ -67,6 +67,7 @@ export default function Particles({ count, stage, pointer }: ParticlesProps) {
         transparent
         opacity={0}
         depthWrite={false}
+        blending={THREE.AdditiveBlending}
       />
     </points>
   );

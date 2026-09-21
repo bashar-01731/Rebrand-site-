@@ -1,19 +1,16 @@
 /**
- * Scene palette, kept in one place so the WebGL layer and the CSS ground stay
- * in agreement. Light theme: a near-white bone ground with a dark sculptural
- * object, rather than a naive inversion of the dark scheme.
+ * Scene palette. Both briefs call for a dark ground, so the object is lit
+ * rather than silhouetted: it floats above the video sections and has to read
+ * against moving footage, not a flat page.
  */
 export const PALETTE = {
-  /** Page ground; the fog matches it so the object dissolves into the page. */
-  ground: '#F2F1F4',
-  fog: '#EEEDF1',
-  /** The solid form: dark graphite, reads as a cut object against the bone. */
-  object: '#25232C',
-  /** Wireframe shell — ink rather than light, or it vanishes on a pale ground. */
-  shell: '#3A3543',
-  /** Motes. Dark and normally blended: additive blending is invisible on white. */
-  particle: '#4A4552',
+  ground: '#000000',
+  /** No fog colour fights the video underneath; the scene is transparent. */
+  fog: '#050506',
+  object: '#1B1B22',
+  shell: '#8E7F94',
+  particle: '#CFC7D4',
   accent: '#8E7F94',
   key: '#ffffff',
-  fill: '#C9C6D2',
+  fill: '#6F7590',
 } as const;

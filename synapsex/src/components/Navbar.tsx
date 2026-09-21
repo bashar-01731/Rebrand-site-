@@ -7,12 +7,9 @@ import { scrollToY } from '../smoothScroll';
 
 const PILL_SPRING = { type: 'spring' as const, stiffness: 350, damping: 28 };
 
-const scrollToSection = (id: string) => () =>
-  document.getElementById(id)?.offsetTop ?? window.innerHeight;
-
 const NAV_LINKS = [
-  { label: 'Process', target: scrollToSection('discover') },
-  { label: 'Contact', target: scrollToSection('final') },
+  { label: 'About', target: () => window.innerHeight },
+  { label: 'Metrics', target: () => window.innerHeight * 2 },
 ];
 
 interface NavbarProps {
@@ -43,16 +40,16 @@ export default function Navbar({ entranceComplete }: NavbarProps) {
             onClick={() => scrollTo(0)}
             className={`${
               menuOpen ? 'hidden md:flex' : 'flex'
-            } h-12 items-center gap-2.5 rounded-[14px] bg-ink/[0.07] px-5 backdrop-blur-md`}
-            whileHover={{ scale: 1.02, backgroundColor: 'rgba(22,21,26,0.20)' }}
+            } h-12 items-center gap-2.5 rounded-[14px] bg-white/15 px-5 backdrop-blur-md`}
+            whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.22)' }}
             whileTap={{ scale: 0.98 }}
           >
-            <BrandLogo size={18} className="text-ink" />
-            <span className="text-[16px] font-medium tracking-tight text-ink">RE:BRAND</span>
+            <BrandLogo size={18} className="text-white" />
+            <span className="text-[16px] font-medium tracking-tight text-white">RE:BRAND</span>
           </motion.button>
 
           <motion.div
-            className="flex h-12 items-center overflow-hidden rounded-[14px] bg-ink/[0.07] backdrop-blur-md"
+            className="flex h-12 items-center overflow-hidden rounded-[14px] bg-white/15 backdrop-blur-md"
             animate={{ width: menuOpen ? 290 : 48 }}
             transition={PILL_SPRING}
           >
@@ -63,7 +60,7 @@ export default function Navbar({ entranceComplete }: NavbarProps) {
               onClick={() => setMenuOpen((open) => !open)}
               className={`flex shrink-0 items-center justify-center ${
                 menuOpen
-                  ? 'ml-1.5 h-9 w-9 rounded-[11px] bg-ink/10 hover:bg-ink/20'
+                  ? 'ml-1.5 h-9 w-9 rounded-[11px] bg-white/10 hover:bg-white/20'
                   : 'h-12 w-12 rounded-[14px]'
               }`}
             >
@@ -83,7 +80,7 @@ export default function Navbar({ entranceComplete }: NavbarProps) {
                   onClick={() => scrollTo(target())}
                   onMouseEnter={() => setHovered(label)}
                   onMouseLeave={() => setHovered(null)}
-                  className="whitespace-nowrap text-[16px] font-normal text-ink/85 transition-colors hover:text-ink"
+                  className="whitespace-nowrap text-[16px] font-normal text-white/85 transition-colors hover:text-white"
                 >
                   <ScrambleText text={label} isHovered={hovered === label} />
                 </button>
@@ -94,16 +91,16 @@ export default function Navbar({ entranceComplete }: NavbarProps) {
 
         <motion.button
           type="button"
-          className="flex h-12 items-center gap-2 rounded-full bg-ink px-6 text-bone"
-          onMouseEnter={() => setHovered('Start a project')}
+          className="flex h-12 items-center gap-2 rounded-full bg-white px-6 text-black"
+          onMouseEnter={() => setHovered('Download')}
           onMouseLeave={() => setHovered(null)}
-          whileHover={{ scale: 1.03, backgroundColor: '#2E2C36' }}
+          whileHover={{ scale: 1.03, backgroundColor: '#e2e2e6' }}
           whileTap={{ scale: 0.97 }}
         >
-          <i className="bi bi-arrow-right text-[17px] leading-none" aria-hidden="true" />
+          <i className="bi bi-apple text-[17px] leading-none" aria-hidden="true" />
           <ScrambleText
-            text="Start a project"
-            isHovered={hovered === 'Start a project'}
+            text="Download"
+            isHovered={hovered === 'Download'}
             className="text-[15px] font-normal"
           />
         </motion.button>
@@ -114,18 +111,18 @@ export default function Navbar({ entranceComplete }: NavbarProps) {
         <motion.button
           type="button"
           onClick={() => scrollTo(0)}
-          className="flex h-9 shrink-0 items-center gap-2 overflow-hidden rounded-[10px] bg-ink/[0.07] backdrop-blur-md"
+          className="flex h-9 shrink-0 items-center gap-2 overflow-hidden rounded-[10px] bg-white/15 backdrop-blur-md"
           animate={{ width: menuOpen ? 0 : 'auto', paddingLeft: menuOpen ? 0 : 12, paddingRight: menuOpen ? 0 : 12 }}
           transition={PILL_SPRING}
         >
-          <BrandLogo size={15} className="shrink-0 text-ink" />
-          <span className="whitespace-nowrap text-[13px] font-medium tracking-tight text-ink">
+          <BrandLogo size={15} className="shrink-0 text-white" />
+          <span className="whitespace-nowrap text-[13px] font-medium tracking-tight text-white">
             RE:BRAND
           </span>
         </motion.button>
 
         <motion.div
-          className="flex h-9 items-center overflow-hidden rounded-[10px] bg-ink/[0.07] backdrop-blur-md"
+          className="flex h-9 items-center overflow-hidden rounded-[10px] bg-white/15 backdrop-blur-md"
           animate={{ width: menuOpen ? '100%' : 36 }}
           transition={PILL_SPRING}
         >
@@ -135,7 +132,7 @@ export default function Navbar({ entranceComplete }: NavbarProps) {
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
             className={`flex shrink-0 items-center justify-center ${
-              menuOpen ? 'ml-1 h-7 w-7 rounded-[8px] bg-ink/10' : 'h-9 w-9 rounded-[10px]'
+              menuOpen ? 'ml-1 h-7 w-7 rounded-[8px] bg-white/10' : 'h-9 w-9 rounded-[10px]'
             }`}
           >
             <SquashHamburger isOpen={menuOpen} compact />
@@ -152,7 +149,7 @@ export default function Navbar({ entranceComplete }: NavbarProps) {
                 type="button"
                 tabIndex={menuOpen ? 0 : -1}
                 onClick={() => scrollTo(target())}
-                className="whitespace-nowrap text-[13px] font-normal text-ink/85"
+                className="whitespace-nowrap text-[13px] font-normal text-white/85"
               >
                 {label}
               </button>
@@ -162,11 +159,11 @@ export default function Navbar({ entranceComplete }: NavbarProps) {
 
         <motion.button
           type="button"
-          className="ml-auto flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-ink px-3.5 text-bone"
+          className="ml-auto flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-white px-3.5 text-black"
           whileTap={{ scale: 0.97 }}
         >
-          <i className="bi bi-arrow-right text-[14px] leading-none" aria-hidden="true" />
-          <span className="text-[13px] font-normal">Start</span>
+          <i className="bi bi-apple text-[14px] leading-none" aria-hidden="true" />
+          <span className="text-[13px] font-normal">Download</span>
         </motion.button>
       </nav>
     </motion.header>

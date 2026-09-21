@@ -1,8 +1,8 @@
 # RE:BRAND
 
-Single-page cinematic site where scrolling drives one continuous WebGL scene.
-A pale bone ground, near-black Space Mono type, and a dark faceted 3D form the
-reader flies around by scrolling.
+Single-page cinematic site combining two briefs: five full-viewport video
+sections in black and white Space Mono, with one continuous WebGL scene
+floating above them that the reader flies through by scrolling.
 
 ## Stack
 
@@ -73,16 +73,14 @@ src/
 
 ## Notes
 
-- Sections are transparent: the fixed canvas sits behind all of them, so the
+- Layering: the video sections are z-0, the WebGL canvas z-5, section copy
+  z-20. The object therefore floats over the footage without hiding it, and
+  the scene stays continuous across the whole page. Architecture is spec'd as
+  "pure black, no video" — it carries no fill rather than an opaque one, since
+  the page ground is already black and an opaque panel would blank the scene.
+- The hero video is never autoplayed, so the
   3D scene is continuous from the hero through the footer. Giving a section an
   opaque background breaks that.
-- `concepts.ts` holds four trade directions (jewellery, coffee, clothing,
-  online store). Each is a real set of decisions — palette, display face,
-  layout shape, copy — not one template recoloured, because the picker exists
-  to show the studio treats trades differently.
-- The picker sits on its own bone ground. It is a tool the visitor operates
-  rather than a cinematic stage, and without that ground the object's dark
-  mass cuts straight through the ink headline.
 - The hero parallaxes on the pointer: each line has its own travel distance,
   so moving the mouse separates the sentence by depth.
 - The page is eight stages — Intro, Discover, Detail, Transformation,
@@ -99,8 +97,6 @@ src/
   WebGL layer steps back under dense copy and comes forward where the object is
   the subject. Measured: every text section holds at least 10.9:1 against the
   ink, versus the 4.5:1 AA threshold.
-- Particles use normal blending, not additive: additive brightens toward white
-  and is invisible on a pale ground.
 - Colours live in `three/palette.ts` and the `ink` / `bone` tokens in
   `tailwind.config.js`.
 - The object's material keeps `metalness` moderate on purpose. There is no
