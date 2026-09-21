@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import CinematicText from './components/CinematicText';
@@ -13,27 +13,37 @@ import ScrollIndicator from './components/ScrollIndicator';
 import { useScrollProgress } from './hooks/useScrollProgress';
 import { startSmoothScroll } from './smoothScroll';
 
-// Three.js and R3F are by far the heaviest dependency; keep them out of the
-// initial chunk so the shell and loading screen paint immediately.
-const Experience = lazy(() => import('./three/Experience'));
-
 /** Delay before the hero content and navbar reveal themselves. */
 const ENTRANCE_DELAY = 400;
 /** Hero, Cinematic, Metrics, Technology, Architecture, Footer. */
 const SECTION_COUNT = 6;
 
 export default function App() {
-  const [sceneReady, setSceneReady] = useState(false);
+  const [ready, setReady] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [entranceComplete, setEntranceComplete] = useState(false);
 
   const section = useScrollProgress(SECTION_COUNT);
 
-  const handleSceneReady = useCallback(() => setSceneReady(true), []);
   const handleLoaderDone = useCallback(() => setRevealed(true), []);
 
-  // The entrance only starts once the loader has cleared, so the scramble
-  // isn't playing behind a curtain.
+  // Hold the curtain until the typefaces have landed, so the hero doesn't
+  // reveal in a fallback face and reflow a beat later.
+  useEffect(() => {
+    let cancelled = false;
+    const done = () => {
+      if (!cancelled) setReady(true);
+    };
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(done).catch(done);
+    } else {
+      done();
+    }
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   useEffect(() => {
     if (!revealed) return;
     const timeout = setTimeout(() => setEntranceComplete(true), ENTRANCE_DELAY);
@@ -48,25 +58,16 @@ export default function App() {
       className="relative w-full bg-black text-white"
       style={{ fontFamily: '"Space Mono", monospace' }}
     >
-      <LoadingScreen ready={sceneReady} onDone={handleLoaderDone} />
+      <LoadingScreen ready={ready} onDone={handleLoaderDone} />
       <CustomCursor />
 
-      {/* The video sections own the ground; the WebGL object floats above them
-          and below the copy, so the scene is continuous across the whole page
-          without hiding the footage. */}
-      <div className="relative z-0">
-        <Navbar entranceComplete={entranceComplete} />
-        <Hero entranceComplete={entranceComplete} />
-        <CinematicText />
-        <Metrics />
-        <Technology />
-        <Architecture />
-        <Footer />
-      </div>
-
-      <Suspense fallback={null}>
-        <Experience onReady={handleSceneReady} />
-      </Suspense>
+      <Navbar entranceComplete={entranceComplete} />
+      <Hero entranceComplete={entranceComplete} />
+      <CinematicText />
+      <Metrics />
+      <Technology />
+      <Architecture />
+      <Footer />
 
       <SectionCounter index={section} total={SECTION_COUNT} visible={revealed} />
       <ScrollIndicator visible={revealed && section === 0} />
