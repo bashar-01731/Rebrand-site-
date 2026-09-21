@@ -104,7 +104,7 @@ export const STAGES: Stage[] = [
     keyLight: 0.9,
     rimLight: 2,
     particles: 1,
-    sceneOpacity: 0.55,
+    sceneOpacity: 0.26,
   },
   {
     at: 0.82,
@@ -116,7 +116,7 @@ export const STAGES: Stage[] = [
     keyLight: 1.6,
     rimLight: 0.8,
     particles: 0.5,
-    sceneOpacity: 0.42,
+    sceneOpacity: 0.3,
   },
   {
     at: 1,

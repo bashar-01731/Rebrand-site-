@@ -65,7 +65,7 @@ src/
     SectionCounter.tsx        01 / 06
     ScrollIndicator.tsx
     Navbar.tsx  Hero.tsx  CinematicText.tsx  Metrics.tsx
-    Technology.tsx  Architecture.tsx  Footer.tsx
+    Technology.tsx  Services.tsx  Architecture.tsx  Footer.tsx
     ScrambleIn.tsx  ScrambleText.tsx  BrandLogo.tsx  SquashHamburger.tsx
 ```
 
@@ -74,6 +74,9 @@ src/
 - Sections are transparent: the fixed canvas sits behind all of them, so the
   3D scene is continuous from the hero through the footer. Giving a section an
   opaque background breaks that.
+- `Services` is the one section the visitor is meant to act on, so its cards
+  are solid panels rather than washes and the scene steps furthest back there.
+  Package prices read "On request" by design — no invented figures.
 - The scene's opacity is part of the scroll timeline (`sceneOpacity`). Dark type
   on a pale ground is unreadable over a dark object filling the frame, so the
   WebGL layer steps back under dense copy and comes forward where the object is

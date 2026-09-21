@@ -17,7 +17,7 @@ export default function Metrics() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1.2 }}
         >
-          Studio Standards
+          02 — Studio Standards
         </motion.p>
 
         <div className="grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-8">
