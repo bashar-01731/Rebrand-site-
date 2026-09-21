@@ -12,7 +12,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
 export default function SectionCounter({ index, total, visible }: SectionCounterProps) {
   return (
     <motion.div
-      className="pointer-events-none fixed right-4 top-1/2 z-40 flex -translate-y-1/2 items-baseline gap-1 sm:right-6 md:right-8"
+      className="pointer-events-none fixed right-4 top-24 z-40 flex items-baseline gap-1 sm:right-6 md:right-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: visible ? 1 : 0 }}
       transition={{ duration: 0.8 }}
