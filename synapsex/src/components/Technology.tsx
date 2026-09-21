@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { VIDEOS } from '../videos';
 
 const CAPABILITIES = [
   {
@@ -23,15 +22,6 @@ const CAPABILITIES = [
 export default function Technology() {
   return (
     <section className="relative h-screen h-[100dvh] w-full overflow-hidden">
-      <video
-        src={VIDEOS.technology}
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-
       {/* Top padding clears the fixed 80px navbar, which overlays this section. */}
       <div className="relative z-10 flex h-full flex-col px-8 pb-12 pt-24 sm:px-12 sm:pb-16 sm:pt-28 md:px-16">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">

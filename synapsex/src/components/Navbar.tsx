@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import SynapseXLogo from './SynapseXLogo';
+import BrandLogo from './BrandLogo';
 import SquashHamburger from './SquashHamburger';
 import ScrambleText from './ScrambleText';
 import { scrollToY } from '../smoothScroll';
@@ -44,8 +44,8 @@ export default function Navbar({ entranceComplete }: NavbarProps) {
             whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.22)' }}
             whileTap={{ scale: 0.98 }}
           >
-            <SynapseXLogo size={18} className="text-white" />
-            <span className="text-[16px] font-medium tracking-tight text-white">SynapseX</span>
+            <BrandLogo size={18} className="text-white" />
+            <span className="text-[16px] font-medium tracking-tight text-white">RE:BRAND</span>
           </motion.button>
 
           <motion.div
@@ -115,9 +115,9 @@ export default function Navbar({ entranceComplete }: NavbarProps) {
           animate={{ width: menuOpen ? 0 : 'auto', paddingLeft: menuOpen ? 0 : 12, paddingRight: menuOpen ? 0 : 12 }}
           transition={PILL_SPRING}
         >
-          <SynapseXLogo size={15} className="shrink-0 text-white" />
+          <BrandLogo size={15} className="shrink-0 text-white" />
           <span className="whitespace-nowrap text-[13px] font-medium tracking-tight text-white">
-            SynapseX
+            RE:BRAND
           </span>
         </motion.button>
 

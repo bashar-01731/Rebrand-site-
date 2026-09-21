@@ -8,7 +8,7 @@ const LAYERS = [
 
 export default function Architecture() {
   return (
-    <section className="relative flex min-h-screen w-full items-center justify-center bg-black">
+    <section className="relative flex min-h-screen w-full items-center justify-center">
       <div className="mx-auto max-w-3xl px-6 py-32 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
